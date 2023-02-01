@@ -96,6 +96,9 @@ export const Tag = styled.li`
   background-color: #243556;
   padding: 0.5rem;
   border-radius: 0.7rem;
+  @media ${(props) => props.theme.breakpoints.sm} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const TitleContent = styled.div`
