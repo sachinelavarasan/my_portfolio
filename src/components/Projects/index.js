@@ -1,7 +1,7 @@
-import React from "react";
+import { useMemo } from "react";
 import { projects } from "../../constants/constants";
 import { ProjectCard } from "./components/ProjectCard";
-import { GridContainer, ProjectContainer } from "./element";
+import { GridContainer } from "./element";
 import {
   Section,
   SectionDivider,
@@ -9,12 +9,19 @@ import {
 } from "../../styles/GlobalComponents";
 
 export const Projects = () => {
+  const projectsMemoized = useMemo(() => {
+    if (projects.length % 2 == 1) {
+      return [...projects, { title: "Upcoming", type: "empty", id: "empty" }];
+    }
+    return projects;
+  }, [projects]);
+
   return (
     <Section id="projects">
       <SectionDivider />
       <SectionTitle main>Projects</SectionTitle>
       <GridContainer>
-        {projects.map((item) => (
+        {projectsMemoized.map((item) => (
           <ProjectCard
             key={item.id}
             title={item.title}
@@ -22,6 +29,7 @@ export const Projects = () => {
             description={item.description}
             tech={item.tags}
             source={item.source}
+            type={item.type}
           />
         ))}
       </GridContainer>
