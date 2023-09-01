@@ -7,6 +7,7 @@ export const projects = [
     tags: ["PHP", "JavaScript", "Mysql", "Bootstrap"],
     source: "https://github.com/sachinelavarasan/FoodOrderSystem-PHP",
     id: 0,
+    type: "project",
   },
   {
     title: "Table Booking Using MERN App",
@@ -25,6 +26,7 @@ export const projects = [
       "https://github.com/sachinelavarasan/RestaurantTableBooking-REACT-NODE",
 
     id: 1,
+    type: "project",
   },
   {
     title: "Food Order App",
@@ -34,6 +36,7 @@ export const projects = [
     tags: ["React Native", "Sanity Io", "Tailwind css", "Redux"],
     source: "https://github.com/sachinelavarasan/ReactNative-SanityIo",
     id: 2,
+    type: "project",
   },
   {
     title: "Shopping app",
@@ -43,6 +46,7 @@ export const projects = [
     tags: ["React Native", "Jsonplaceholder", "Redux"],
     source: "https://github.com/sachinelavarasan/ReactNative-JsonPlaceholder",
     id: 3,
+    type: "project",
   },
   {
     title: "Task app",
@@ -52,6 +56,7 @@ export const projects = [
     tags: ["Next Js", "Mongo Db", "Redux toolkit", "Tailwind css"],
     source: "https://github.com/sachinelavarasan/TaskApp-NEXTJS",
     id: 4,
+    type: "project",
   },
   {
     title: "Reminder app",
@@ -61,6 +66,17 @@ export const projects = [
     tags: ["Flutter", "Firebase", "Local push notification"],
     source: "https://github.com/sachinelavarasan/flutter_reminder_app",
     id: 5,
+    type: "project",
+  },
+  {
+    title: "Github Finder",
+    description:
+      "You can search github users and see their github account overview.",
+    image: "/projectImage/githubfinder.png",
+    tags: ["React Native", "Node js", "Express js", "Github Api", "Expo"],
+    source: "https://github.com/sachinelavarasan/GitHubFinder",
+    id: 6,
+    type: "project",
   },
 ];
 

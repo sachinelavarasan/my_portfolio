@@ -63,8 +63,9 @@ export const ProjectCardContainer = styled.div`
 
 export const Img = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
   overflow: hidden;
 `;
 
