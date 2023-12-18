@@ -11,7 +11,14 @@ import {
 export const Projects = () => {
   const projectsMemoized = useMemo(() => {
     if (projects.length % 2 == 1) {
-      return [...projects, { title: "Upcoming", type: "empty", id: "empty" }];
+      return [
+        ...projects,
+        {
+          title: "Upcoming",
+          type: "empty",
+          id: "empty",
+        },
+      ];
     }
     return projects;
   }, [projects]);

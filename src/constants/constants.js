@@ -4,8 +4,14 @@ export const projects = [
     description:
       "Using PHP, JavaScript, Boostrap, Mysql you'll learn how to build this application - from start to finish. The App is called Order Taker and it is a simple Javascript app that allows users like to order food without manual effort",
     image: "/projectImage/Hotel-php.png",
-    tags: ["PHP", "JavaScript", "Mysql", "Bootstrap"],
-    source: "https://github.com/sachinelavarasan/FoodOrderSystem-PHP",
+    tags: [
+      "PHP",
+      "JavaScript",
+      "Mysql",
+      "Bootstrap",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/FoodOrderSystem-PHP",
     id: 0,
     type: "project",
   },
@@ -32,9 +38,16 @@ export const projects = [
     title: "Food Order App",
     description:
       "Food app built by React Native,Sanity Cms as backend.It Used to food order with expo Geolocation",
-    image: "/projectImage/reactnative-tailwind.png",
-    tags: ["React Native", "Sanity Io", "Tailwind css", "Redux"],
-    source: "https://github.com/sachinelavarasan/ReactNative-SanityIo",
+    image:
+      "/projectImage/reactnative-tailwind.png",
+    tags: [
+      "React Native",
+      "Sanity Io",
+      "Tailwind css",
+      "Redux",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/ReactNative-SanityIo",
     id: 2,
     type: "project",
   },
@@ -43,8 +56,13 @@ export const projects = [
     description:
       "Shopping app built by React Native,animations. crud operation on data that provided by json api",
     image: "/projectImage/mobile-app.png",
-    tags: ["React Native", "Jsonplaceholder", "Redux"],
-    source: "https://github.com/sachinelavarasan/ReactNative-JsonPlaceholder",
+    tags: [
+      "React Native",
+      "Jsonplaceholder",
+      "Redux",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/ReactNative-JsonPlaceholder",
     id: 3,
     type: "project",
   },
@@ -53,8 +71,14 @@ export const projects = [
     description:
       "Task app built by next js static generation pages.crud operation performed on task of individual user",
     image: "/projectImage/next-redux.png",
-    tags: ["Next Js", "Mongo Db", "Redux toolkit", "Tailwind css"],
-    source: "https://github.com/sachinelavarasan/TaskApp-NEXTJS",
+    tags: [
+      "Next Js",
+      "Mongo Db",
+      "Redux toolkit",
+      "Tailwind css",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/TaskApp-NEXTJS",
     id: 4,
     type: "project",
   },
@@ -63,8 +87,13 @@ export const projects = [
     description:
       "Reminder is build by using flutter,firebase as a backend and gives reminder as a notification",
     image: "/projectImage/reminder.png",
-    tags: ["Flutter", "Firebase", "Local push notification"],
-    source: "https://github.com/sachinelavarasan/flutter_reminder_app",
+    tags: [
+      "Flutter",
+      "Firebase",
+      "Local push notification",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/flutter_reminder_app",
     id: 5,
     type: "project",
   },
@@ -73,9 +102,32 @@ export const projects = [
     description:
       "You can search github users and see their github account overview.",
     image: "/projectImage/githubfinder.png",
-    tags: ["React Native", "Node js", "Express js", "Github Api", "Expo"],
-    source: "https://github.com/sachinelavarasan/GitHubFinder",
+    tags: [
+      "React Native",
+      "Node js",
+      "Express js",
+      "Github Api",
+      "Expo",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/GitHubFinder",
     id: 6,
+    type: "project",
+  },
+  {
+    title: "Shopping Cart",
+    description:
+      "This flutter application uses Google and email addresses for Firebase authentication. It can serve as a basic authentication template.",
+    image: "/projectImage/shopping-cart.png",
+    tags: [
+      "Flutter",
+      "Getx",
+      "Get Storage",
+      "Firebase",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/flutter_firebaseauth",
+    id: 7,
     type: "project",
   },
 ];
@@ -90,12 +142,14 @@ export const skills = [
   {
     image: "/skills/html-icon.svg",
     id: 1,
-    description: "HTML is used to create structure of web pages.",
+    description:
+      "HTML is used to create structure of web pages.",
   },
   {
     image: "/skills/css-icon.svg",
     id: 2,
-    description: "CSS is used to style and layout web pages.",
+    description:
+      "CSS is used to style and layout web pages.",
   },
   {
     image: "/skills/bootstrap-icon.svg",
