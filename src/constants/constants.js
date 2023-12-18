@@ -115,6 +115,23 @@ export const projects = [
     type: "project",
   },
   {
+    title: "Learn Tech",
+    description:
+      "Individuals can become teachers and learn from others by sharing their knowledge with less investment",
+    image: "/projectImage/course-platform.png",
+    tags: [
+      "Next Js",
+      "Tailwind css",
+      "Cleak auth",
+      "Prisma",
+      "Mysql",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/course-platform",
+    id: 7,
+    type: "project",
+  },
+  {
     title: "Shopping Cart",
     description:
       "This flutter application uses Google and email addresses for Firebase authentication. It can serve as a basic authentication template.",
@@ -127,7 +144,7 @@ export const projects = [
     ],
     source:
       "https://github.com/sachinelavarasan/flutter_firebaseauth",
-    id: 7,
+    id: 8,
     type: "project",
   },
 ];
