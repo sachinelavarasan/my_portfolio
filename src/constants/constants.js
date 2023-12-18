@@ -131,6 +131,22 @@ export const projects = [
     id: 7,
     type: "project",
   },
+  {
+    title: "Shopping Cart",
+    description:
+      "This flutter application uses Google and email addresses for Firebase authentication. It can serve as a basic authentication template.",
+    image: "/projectImage/shopping-cart.png",
+    tags: [
+      "Flutter",
+      "Getx",
+      "Get Storage",
+      "Firebase",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/flutter_firebaseauth",
+    id: 8,
+    type: "project",
+  },
 ];
 
 export const skills = [
