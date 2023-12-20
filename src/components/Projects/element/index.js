@@ -13,7 +13,6 @@ export const ProjectContainer = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   padding: 3rem;
   place-items: center;
   column-gap: 2rem;
@@ -29,20 +28,27 @@ export const GridContainer = styled.div`
 
 export const ProjectCardContainer = styled.div`
   border-radius: 8px;
-  box-shadow: 0px 0px 3px 7px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 400px;
+  box-shadow: 0px 0px 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 100%;
   background: #212d45;
   bottom: 0px;
   position: relative;
 
   &:hover {
-    transition: all 0.2s ease-out;
+    transition: all 0.1s ease-in;
     bottom: -4px;
-    box-shadow: 0 0px 4px 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0px 4px 5px rgba(0, 0, 0, 0.3);
   }
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
+  }
+  @media ${(props) => props.theme.breakpoints.lg} {
+    width: 100%;
+    .container-project{
+      display: flex;
+      flex-direction: column;
+    }
   }
   .heading {
     font-weight: 800;
@@ -62,11 +68,17 @@ export const ProjectCardContainer = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 100%;
+
+  max-width: 400px;
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    max-width: 100%;
+  }
+  /* width: 100%;
   height: 200px;
   object-fit: contain;
   object-position: center;
-  overflow: hidden;
+  overflow: hidden; */
 `;
 
 export const ExternalLinks = styled.a`

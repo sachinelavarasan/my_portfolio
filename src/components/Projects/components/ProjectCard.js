@@ -21,10 +21,10 @@ export const ProjectCard = ({
   return (
     <ProjectCardContainer className={className}>
       {type === "project" ? (
-        <>
+        <div className="d-flex align-items-center container-project">
           <Img src={url} alt={title} />
-          <div className="bottom">
-            <div className="heading pb-2 mt-4">{title}</div>
+          <div className="bottom ms-4">
+            <div className="heading pb-2">{title}</div>
             <div className="description">{description}</div>
             <div>
               <TitleContent>Stack</TitleContent>
@@ -40,7 +40,7 @@ export const ProjectCard = ({
               </ExternalLinks>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <div className="heading pb-2 mt-3">{title}....</div>
       )}
