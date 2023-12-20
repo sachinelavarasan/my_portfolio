@@ -52,52 +52,6 @@ export const projects = [
     type: "project",
   },
   {
-    title: "Shopping app",
-    description:
-      "Shopping app built by React Native,animations. crud operation on data that provided by json api",
-    image: "/projectImage/mobile-app.png",
-    tags: [
-      "React Native",
-      "Jsonplaceholder",
-      "Redux",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/ReactNative-JsonPlaceholder",
-    id: 3,
-    type: "project",
-  },
-  {
-    title: "Task app",
-    description:
-      "Task app built by next js static generation pages.crud operation performed on task of individual user",
-    image: "/projectImage/next-redux.png",
-    tags: [
-      "Next Js",
-      "Mongo Db",
-      "Redux toolkit",
-      "Tailwind css",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/TaskApp-NEXTJS",
-    id: 4,
-    type: "project",
-  },
-  {
-    title: "Reminder app",
-    description:
-      "Reminder is build by using flutter,firebase as a backend and gives reminder as a notification",
-    image: "/projectImage/reminder.png",
-    tags: [
-      "Flutter",
-      "Firebase",
-      "Local push notification",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/flutter_reminder_app",
-    id: 5,
-    type: "project",
-  },
-  {
     title: "Github Finder",
     description:
       "You can search github users and see their github account overview.",
@@ -111,7 +65,7 @@ export const projects = [
     ],
     source:
       "https://github.com/sachinelavarasan/GitHubFinder",
-    id: 6,
+    id: 3,
     type: "project",
   },
   {
@@ -128,7 +82,7 @@ export const projects = [
     ],
     source:
       "https://github.com/sachinelavarasan/course-platform",
-    id: 7,
+    id: 4,
     type: "project",
   },
   {
@@ -144,7 +98,7 @@ export const projects = [
     ],
     source:
       "https://github.com/sachinelavarasan/flutter_firebaseauth",
-    id: 8,
+    id: 5,
     type: "project",
   },
 ];
