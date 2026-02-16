@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Theme } from "../../../types";
 
-export const TechStackContainer = styled.div`
+export const TechStackContainer = styled.div<{ theme: Theme }>`
   .entire-div {
     display: flex;
     flex-direction: column;
@@ -59,7 +60,7 @@ export const Img = styled.img`
   filter: drop-shadow(3px -1px 0px #000);
 `;
 
-export const SkillCardContainer = styled.div`
+export const SkillCardContainer = styled.div<{ theme: Theme }>`
   border-radius: 8px;
   box-shadow: 0px 0px 3px 7px rgba(0, 0, 0, 0.1);
   padding: 10px;

@@ -1,9 +1,14 @@
 import { ThemeProvider } from 'styled-components';
+import { ReactNode } from 'react';
 
 import theme from "../themes/default";
 import GlobalStyles from './globals';
 
-const Theme = ({ children }) => (
+interface ThemeProps {
+  children: ReactNode;
+}
+
+const Theme = ({ children }: ThemeProps) => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     {children}

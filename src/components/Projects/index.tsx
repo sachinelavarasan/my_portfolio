@@ -16,12 +16,16 @@ export const Projects = () => {
         {
           title: "Upcoming",
           type: "empty",
-          id: "empty",
+          id: 999,
+          description: "",
+          image: "",
+          tags: [],
+          source: "",
         },
       ];
     }
     return projects;
-  }, [projects]);
+  }, []);
 
   return (
     <Section id="projects">

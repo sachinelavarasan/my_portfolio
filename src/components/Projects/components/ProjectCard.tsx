@@ -9,6 +9,16 @@ import {
   TitleContent,
 } from "../element";
 
+interface ProjectCardProps {
+  title: string;
+  className?: string;
+  url: string;
+  source: string;
+  description: string;
+  tech: string[];
+  type: string;
+}
+
 export const ProjectCard = ({
   title,
   className,
@@ -17,7 +27,7 @@ export const ProjectCard = ({
   description,
   tech,
   type,
-}) => {
+}: ProjectCardProps) => {
   return (
     <ProjectCardContainer className={className}>
       {type === "project" ? (
