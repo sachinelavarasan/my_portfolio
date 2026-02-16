@@ -2,7 +2,13 @@ import React from "react";
 
 import { SkillImg, SkillCardContainer } from "../elements";
 
-export const SkillCard = ({ className, url, description }) => {
+interface SkillCardProps {
+  className?: string;
+  url: string;
+  description: string;
+}
+
+export const SkillCard = ({ className, url, description }: SkillCardProps) => {
   return (
     <SkillCardContainer className={className}>
       <SkillImg src={url} alt="myicon" className="image" />

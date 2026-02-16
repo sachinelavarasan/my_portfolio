@@ -1,10 +1,14 @@
 import Head from "next/head";
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { Header, Footer } from "../components";
 import { Container } from "./LayoutStyles";
 
-export const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
       <Head>

@@ -1,4 +1,6 @@
-export const projects = [
+import { Project, Skill } from "../types";
+
+export const projects: Project[] = [
   {
     title: "Food Order Taker",
     description:
@@ -103,7 +105,7 @@ export const projects = [
   },
 ];
 
-export const skills = [
+export const skills: Skill[] = [
   {
     image: "/skills/c-icon.svg",
     id: 0,
@@ -156,7 +158,7 @@ export const skills = [
     image: "/skills/redux-icon.svg",
     id: 8,
     description:
-      "Redux is used to solve a problem by managing application’s state with a single global object called Store. ",
+      "Redux is used to solve a problem by managing application's state with a single global object called Store. ",
   },
   {
     image: "/skills/node-icon.svg",

@@ -15,27 +15,29 @@ import {
 export const Header = () => (
   <Container>
     <Div1>
-      <Link href="/">
-        <a style={{ display: "flex", alignItems: "center", color: "white" }}>
-          <DiCssdeck size="3rem" /> <span>Portfolio</span>
-        </a>
+      <Link
+        href="/"
+        style={{ display: "flex", alignItems: "center", color: "white" }}
+      >
+        <DiCssdeck size="3rem" />
+        <span>Portfolio</span>
       </Link>
     </Div1>
     <Div2>
       <li>
-        <Link href="#about">
-          <NavLink>About</NavLink>
-        </Link>
+        <NavLink href="#about">
+          About
+        </NavLink>
       </li>
       <li>
-        <Link href="#tech">
-          <NavLink>Tech Stack</NavLink>
-        </Link>
+        <NavLink href="#tech">
+         Tech Stack
+        </NavLink>
       </li>
       <li>
-        <Link href="#projects">
-          <NavLink>Projects</NavLink>
-        </Link>
+        <NavLink href="#projects">
+          Projects
+        </NavLink>
       </li>
     </Div2>
     <Div3>
@@ -43,7 +45,7 @@ export const Header = () => (
         <AiFillGithub size="3rem" />
       </SocialIcons>
       <SocialIcons
-        href="https://www.linkedin.com/in/elavarasan-m-ab48a0129"
+        href="https://www.linkedin.com/in/elavarasan-murugesan"
         target="_blank"
       >
         <AiFillLinkedin size="3rem" />

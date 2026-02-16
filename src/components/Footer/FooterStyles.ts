@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { Theme } from "../../types";
 
-export const FooterWrapper = styled.section`
+export const FooterWrapper = styled.section<{ theme: Theme }>`
 	width: calc(100vw - 96px);
   max-width: 1040px;
   padding: 2rem 48px 40px;
@@ -14,7 +15,7 @@ export const FooterWrapper = styled.section`
   }
 `
 
-export const LinkItem = styled.a`
+export const LinkItem = styled.a<{ theme: Theme }>`
 	font-size: 18px;
 	line-height: 30px;
 	color: rgba(255, 255, 255, 0.75);
@@ -43,7 +44,7 @@ export const LinkItem = styled.a`
 	}
 `
 
-export const SocialIconsContainer = styled.div`
+export const SocialIconsContainer = styled.div<{ theme: Theme }>`
 max-width: 1040px;
 display: flex;
 justify-content: space-between;
@@ -60,7 +61,7 @@ justify-content: space-between;
 }
 `
 
-export const CompanyContainer = styled.div`
+export const CompanyContainer = styled.div<{ theme: Theme }>`
   display: flex;
 	align-items:baseline;
 	flex-wrap: wrap;
@@ -81,7 +82,7 @@ export const CompanyContainer = styled.div`
 `
 
 
-export const Slogan = styled.p`
+export const Slogan = styled.p<{ theme: Theme }>`
 	color: rgba(255, 255, 255, 0.5);
 	min-width: 280px;
 	letter-spacing: 0.02em;
@@ -101,7 +102,7 @@ export const Slogan = styled.p`
 	}
 `
 
-export const SocialContainer = styled.div`
+export const SocialContainer = styled.div<{ theme: Theme }>`
 	display: flex;
   align-items: center;
 
@@ -113,7 +114,7 @@ export const SocialContainer = styled.div`
 `
 
 
-export const LinkList = styled.ul`
+export const LinkList = styled.ul<{ theme: Theme }>`
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: grid;
 	grid-template-columns: repeat(3, minmax(85px, 220px));
@@ -142,7 +143,7 @@ export const LinkColumn = styled.div`
 	max-width: 220px;
 	width: 100%;
 `
-export const LinkTitle = styled.h4`
+export const LinkTitle = styled.h4<{ theme: Theme }>`
 	font-style: normal;
 	font-weight: 600;
 	font-size: 12px;

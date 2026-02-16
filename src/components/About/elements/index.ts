@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Theme } from "../../../types";
 
-export const AboutContainer = styled.div`
+export const AboutContainer = styled.div<{ theme: Theme }>`
   .entire-div {
     display: flex;
     flex-direction: column;

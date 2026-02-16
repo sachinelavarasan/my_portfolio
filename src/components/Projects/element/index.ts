@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Theme } from "../../../types";
 
 export const ProjectContainer = styled.div`
   .heading {
@@ -11,7 +12,7 @@ export const ProjectContainer = styled.div`
   }
 `;
 
-export const GridContainer = styled.div`
+export const GridContainer = styled.div<{ theme: Theme }>`
   display: grid;
   padding: 3rem;
   place-items: center;
@@ -26,7 +27,7 @@ export const GridContainer = styled.div`
   }
 `;
 
-export const ProjectCardContainer = styled.div`
+export const ProjectCardContainer = styled.div<{ theme: Theme }>`
   border-radius: 8px;
   box-shadow: 0px 0px 3px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -67,7 +68,7 @@ export const ProjectCardContainer = styled.div`
   }
 `;
 
-export const Img = styled.img`
+export const Img = styled.img<{ theme: Theme }>`
 
   max-width: 400px;
 
@@ -102,7 +103,7 @@ export const TagList = styled.ul`
   justify-content: space-between;
   padding: 2rem;
 `;
-export const Tag = styled.li`
+export const Tag = styled.li<{ theme: Theme }>`
   color: #d8bfbf;
   font-size: 1.1rem;
   font-weight: 600;

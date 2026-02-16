@@ -1,7 +1,9 @@
 import { IoIosArrowDropdown } from "react-icons/io";
 import styled from "styled-components";
+import Link from "next/link";
+import { Theme } from "../../types";
 
-export const Container = styled.div`
+export const Container = styled.div<{ theme: Theme }>`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
@@ -17,7 +19,7 @@ export const Container = styled.div`
     grid-row-gap: 0.5rem;
   }
 `;
-export const Div1 = styled.div`
+export const Div1 = styled.div<{ theme: Theme }>`
   grid-area: 1 / 1 / 2 / 2;
   display: flex;
   flex-direction: row;
@@ -26,7 +28,7 @@ export const Div1 = styled.div`
     grid-area: 1 / 1 / 2 / 3;
   }
 `;
-export const Div2 = styled.div`
+export const Div2 = styled.div<{ theme: Theme }>`
   grid-area: 1 / 2 / 2 / 4;
   display: flex;
   justify-content: space-around;
@@ -34,7 +36,7 @@ export const Div2 = styled.div`
     grid-area: 2 / 2 / 3 / 5;
   }
 `;
-export const Div3 = styled.div`
+export const Div3 = styled.div<{ theme: Theme }>`
   grid-area: 1 / 5 / 2 / 6;
   display: flex;
   justify-content: space-around;
@@ -46,23 +48,26 @@ export const Div3 = styled.div`
 `;
 
 // Navigation Links
-export const NavLink = styled.a`
+export const NavLink = styled(Link)<{ theme: Theme }>`
   font-size: 2rem;
   line-height: 32px;
   color: rgba(255, 255, 255, 0.75);
   transition: 0.4s ease;
+  text-decoration: none;
+
   &:hover {
     color: #fff;
     opacity: 1;
     cursor: pointer;
   }
+
   @media ${(props) => props.theme.breakpoints.sm} {
     padding: 0.5rem;
   }
 `;
 
 /// DropDown Contact
-export const ContactDropDown = styled.button`
+export const ContactDropDown = styled.button<{ theme: Theme }>`
   border: none;
   display: flex;
   position: relative;
@@ -89,7 +94,12 @@ export const ContactDropDown = styled.button`
   }
 `;
 
-export const NavProductsIcon = styled(IoIosArrowDropdown)`
+interface NavProductsIconProps {
+  isOpen?: boolean;
+  theme: Theme;
+}
+
+export const NavProductsIcon = styled(IoIosArrowDropdown)<NavProductsIconProps>`
   margin-left: 8px;
   display: flex;
   align-self: center;

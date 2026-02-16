@@ -1,6 +1,49 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Theme } from '../../types';
 
-export const Section = styled.section`
+interface SectionProps {
+  grid?: boolean;
+  row?: boolean;
+  nopadding?: boolean;
+  theme: Theme;
+}
+
+interface SectionTitleProps {
+  main?: boolean;
+  theme: Theme;
+}
+
+interface SectionDividerProps {
+  colorAlt?: boolean;
+  divider?: boolean;
+  theme: Theme;
+}
+
+interface ButtonBackProps {
+  alt?: boolean;
+  form?: boolean;
+  disabled?: boolean;
+  theme: Theme;
+}
+
+interface ButtonFrontProps {
+  alt?: boolean;
+  disabled?: boolean;
+  theme: Theme;
+}
+
+interface LinkContainerProps {
+  large?: boolean;
+  theme: Theme;
+}
+
+interface LinkIconImgProps {
+  large?: boolean;
+  nav?: boolean;
+  theme: Theme;
+}
+
+export const Section = styled.section<SectionProps>`
   display: ${(props) => props.grid ? "grid" : "flex" };
   flex-direction: ${(props) => props.row ? "row" : "column" };
   padding: ${(props) => props.nopadding ? "0" : "32px 48px 0" } ;
@@ -24,7 +67,7 @@ export const Section = styled.section`
   }
 `
 
-export const SectionTitle = styled.h2`
+export const SectionTitle = styled.h2<SectionTitleProps>`
   font-weight: 800;
   font-size: ${(props) => props.main ? '56px' : '46px'};
   line-height: ${(props) => props.main ? '62px' : '46px'};
@@ -54,7 +97,7 @@ export const SectionTitle = styled.h2`
   }
 `
 
-export const SectionText = styled.p`
+export const SectionText = styled.p<{ theme: Theme }>`
   max-width: 800px;
   font-size: 24px;
   line-height: 40px;
@@ -76,7 +119,7 @@ export const SectionText = styled.p`
   }
 `
 
-export const SectionDivider = styled.div`
+export const SectionDivider = styled.div<SectionDividerProps>`
 
   width: 64px;
   height: 6px;
@@ -98,7 +141,7 @@ export const SectionDivider = styled.div`
     height: 2px;
   }
 `
-export const SectionSubText = styled.p`
+export const SectionSubText = styled.p<{ theme: Theme }>`
   max-width: 800px;
   font-weight: 300;
   font-size: 18px;
@@ -116,7 +159,7 @@ export const SectionSubText = styled.p`
     line-height: 22px;
   }
 `
-export const SecondaryBtn = styled.button`
+export const SecondaryBtn = styled.button<{ theme: Theme }>`
   color: #FFF;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.33);
@@ -166,7 +209,7 @@ export const SecondaryBtn = styled.button`
   }
 `
 
-export const ButtonBack = styled.div`
+export const ButtonBack = styled.div<ButtonBackProps>`
   width: ${({ alt }) => alt ? '150px' : '262px'};
   height: ${({ alt }) => alt ? '52px' : '64px'};
   border-radius: 50px;
@@ -199,7 +242,7 @@ export const ButtonBack = styled.div`
   }
 `
 
-export const ButtonFront = styled.button`
+export const ButtonFront = styled.button<ButtonFrontProps>`
   border: none;
   border-radius: 50px;
   color: #fff;
@@ -245,7 +288,7 @@ export const ButtonFront = styled.button`
   }
 `
 
-export const LinkContainer = styled.div`
+export const LinkContainer = styled.div<LinkContainerProps>`
   margin-left: ${({ large }) => large ? '24px' : '16px'};
   transition: 0.3s ease;
   justify-content: center;
@@ -267,7 +310,7 @@ export const LinkContainer = styled.div`
   }
 `
 
-export const LinkIconImg = styled.div`
+export const LinkIconImg = styled.div<LinkIconImgProps>`
   display: flex;  
   height: ${({ large }) => large ? '32px' : '24px'};
 

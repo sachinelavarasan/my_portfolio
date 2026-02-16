@@ -17,7 +17,7 @@ export const TechStack = () => {
         <div className="entire-div">
           <p className="subhead">
             {" "}
-            Technologies I’ve been working with recently
+            Technologies I've been working with recently
           </p>
           <div className="skills">
             <div className="grid-container mt-5">
