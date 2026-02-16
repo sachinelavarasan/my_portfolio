@@ -103,154 +103,186 @@ export const projects: Project[] = [
     id: 5,
     type: "project",
   },
+  {
+  title: "Expensify",
+  description:
+    "A modern cross-platform expense tracking app built with Expo and React Native. Features secure authentication with Clerk, expense analytics with charts, and Excel export support. Runs on Android, iOS, and Web.",
+  image: "",
+  tags: [
+    "Expo",
+    "React Native",
+    "TypeScript",
+    "Expo Router",
+    "React Query",
+    "Clerk",
+    "XLSX",
+  ],
+  source:
+    "https://github.com/sachinelavarasan/expensify",
+  id: 6,
+  type: "project",
+  },
 ];
 
 export const skills: Skill[] = [
   {
-    image: "/skills/c-icon.svg",
-    id: 0,
-    description:
-      "C program can be used to develop software like operating systems, databases, compilers and so on.",
-  },
-  {
-    image: "/skills/html-icon.svg",
-    id: 1,
-    description:
-      "HTML is used to create structure of web pages.",
-  },
-  {
-    image: "/skills/css-icon.svg",
-    id: 2,
-    description:
-      "CSS is used to style and layout web pages.",
-  },
-  {
-    image: "/skills/bootstrap-icon.svg",
-    id: 3,
-    description:
-      "Bootstrap is a CSS framework and toolkit. Designed to enable responsive development of mobile-first websites.",
-  },
-  {
-    image: "/skills/js-icon.svg",
-    id: 4,
-    description:
-      "JavaScript is a scripting language that enables you to create dynamically updating content, and DOM manipulation",
-  },
-  {
-    image: "/skills/php-icon.svg",
-    id: 5,
-    description:
-      "PHP  is a programming language that allows web developers to create dynamic content that interacts with databases",
-  },
-  {
-    image: "/skills/java-icon.svg",
-    id: 6,
-    description:
-      "Java is a platform independent. It is a object-oriented and secure programming language.",
-  },
-  {
-    image: "/skills/react-js-icon.svg",
-    id: 7,
-    description:
-      "React. js is a lightweight JavaScript library for building user interfaces, which can also be applied for creating reusable components.",
-  },
-  {
-    image: "/skills/redux-icon.svg",
-    id: 8,
-    description:
-      "Redux is used to solve a problem by managing application's state with a single global object called Store. ",
-  },
-  {
-    image: "/skills/node-icon.svg",
-    id: 9,
-    description:
-      "Node js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser.",
-  },
-  {
-    image: "/skills/react-native-icon.svg",
-    id: 10,
-    description:
-      "React native is used to develop applications for Android and iOS by enabling developers to use the React along with native platform capabilities.",
-  },
-
-  {
-    image: "/skills/github-icon.svg",
-    id: 11,
-    description:
-      "GitHub is a code hosting platform for version control and collaborating with team members.",
-  },
-  {
-    image: "/skills/nextjs-icon.svg",
-    id: 12,
-    description:
-      "Next. js is a React framework that enables several extra features, including server-side rendering and generating static websites.",
-  },
-
-  {
-    image: "/skills/tailwind-icon.svg",
-    id: 13,
-    description:
-      "Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces.",
-  },
-  {
-    image: "/skills/mysql-icon.svg",
-    id: 14,
-    description:
-      "MySQL is used to manage the data of web applications, websites, and even mobile applications by sorting it into tables.",
-  },
-  {
-    image: "/skills/mongodb-icon.svg",
-    id: 15,
-    description:
-      "MongoDB is a non-relational document database that provides support for JSON-like storage.",
-  },
-  {
-    image: "/skills/graphql-icon.svg",
-    id: 16,
-    description:
-      "GraphQL is a query language and server-side runtime for api that prioritizes giving clients exactly the data they request.",
-  },
-  {
-    image: "/skills/typescript-icon.svg",
-    id: 17,
-    description:
-      "TypeScript is a syntactic superset of JavaScript which adds static typing and intellisense.",
-  },
-
-  {
-    image: "/skills/firebase-icon.svg",
-    id: 18,
-    description:
-      "Firebase is a Backend-as-a-Service app development platform that provides hosted backend services.",
-  },
-  {
-    image: "/skills/redis-icon.svg",
-    id: 19,
-    description:
-      "Redis is an in-memory data structure store, used as a distributed, in-memory key–value database.",
-  },
-  {
-    image: "/skills/figma-icon.svg",
-    id: 20,
-    description:
-      "Figma is a cloud-based design tool,team collaboration with designs",
-  },
-  {
-    image: "/skills/nestjs-icon.svg",
-    id: 21,
-    description:
-      "Nest js is a framework for building efficient, scalable Node.js server-side applications.",
-  },
-  {
     image: "/skills/angular-icon.svg",
-    id: 22,
+    id: 0,
     description:
       "Angular is a platform and framework for building single-page client applications using HTML and TypeScript.",
   },
   {
+    image: "/skills/react-js-icon.svg",
+    id: 1,
+    description:
+      "React is a JavaScript library for building fast and interactive user interfaces using reusable components.",
+  },
+  {
+    image: "/skills/typescript-icon.svg",
+    id: 2,
+    description:
+      "TypeScript is a strongly typed superset of JavaScript that improves code quality and developer productivity.",
+  },
+  {
+    image: "/skills/node-icon.svg",
+    id: 3,
+    description:
+      "Node.js is a JavaScript runtime used to build scalable server-side and backend applications.",
+  },
+  {
+    image: "/skills/nestjs-icon.svg",
+    id: 4,
+    description:
+      "NestJS is a scalable Node.js framework for building efficient and maintainable backend applications.",
+  },
+  {
+    image: "/skills/redux-icon.svg",
+    id: 5,
+    description:
+      "Redux Toolkit simplifies state management in React applications with predictable and centralized state.",
+  },
+  {
+    image: "/skills/express-icon.svg",
+    id: 6,
+    description:
+      "Express.js is a minimal and flexible Node.js framework for building web and API applications.",
+  },
+  {
+    image: "/skills/html-icon.svg",
+    id: 7,
+    description:
+      "HTML is the standard markup language used to create the structure of web pages.",
+  },
+  {
+    image: "/skills/css-icon.svg",
+    id: 8,
+    description:
+      "CSS is used to style and layout web pages, including colors, layouts, and responsiveness.",
+  },
+  {
+    image: "/skills/knex-icon.svg",
+    id: 9,
+    description:
+      "KnexJS is a SQL query builder for Node.js used to interact with relational databases efficiently.",
+  },
+
+  {
+    image: "/skills/mysql-icon.svg",
+    id: 10,
+    description:
+      "MySQL is a relational database used for storing and managing structured application data.",
+  },
+  {
+    image: "/skills/mongodb-icon.svg",
+    id: 11,
+    description:
+      "MongoDB is a NoSQL database used to store flexible, JSON-like documents.",
+  },
+  {
+    image: "/skills/postgres-icon.svg",
+    id: 12,
+    description:
+      "PostgreSQL is an advanced open-source relational database known for reliability and performance.",
+  },
+  {
+    image: "/skills/nextjs-icon.svg",
+    id: 13,
+    description:
+      "Next.js is a React framework for building fast web applications with SSR and static generation.",
+  },
+  {
+    image: "/skills/tailwind-icon.svg",
+    id: 14,
+    description:
+      "Tailwind CSS is a utility-first framework for rapidly building modern user interfaces.",
+  },
+  {
+    image: "/skills/github-icon.svg",
+    id: 15,
+    description:
+      "GitHub is a platform for hosting, sharing, and collaborating on software projects.",
+  },
+  {
+    image: "/skills/react-native-icon.svg",
+    id: 16,
+    description:
+      "React Native is used to build cross-platform mobile apps using JavaScript and React.",
+  },
+  {
+    image: "/skills/expo-icon.svg",
+    id: 17,
+    description:
+      "Expo simplifies React Native development with powerful tools and APIs.",
+  },
+  {
+    image: "/skills/prisma-icon.svg",
+    id: 18,
+    description:
+      "Prisma is a modern ORM that simplifies database access and improves type safety.",
+  },
+  {
+    image: "/skills/drizzle-icon.svg",
+    id: 19,
+    description:
+      "Drizzle ORM is a lightweight and type-safe ORM designed for TypeScript and SQL databases.",
+  },
+  {
+    image: "/skills/vitest-icon.svg",
+    id: 20,
+    description:
+      "Vitest is a fast unit testing framework designed for modern JavaScript and TypeScript projects.",
+  },
+  {
+    image: "/skills/react-query-icon.svg",
+    id: 21,
+    description:
+      "React Query simplifies server state management, caching, and synchronization in React apps.",
+  },
+  {
+    image: "/skills/docker-icon.svg",
+    id: 22,
+    description:
+      "Docker is a containerization platform that allows developers to package applications and their dependencies into portable containers for consistent deployment.",
+  },
+
+  {
     image: "/skills/flutter-icon.svg",
     id: 23,
     description:
-      "Flutter is a framework that can be used to create web, desktop, and cross-platform apps that run on Android and iOS devices.",
+      "Flutter is used to build cross-platform mobile applications using a single codebase.",
+  },
+  {
+    image: "/skills/firebase-icon.svg",
+    id: 24,
+    description:
+      "Firebase provides backend services like authentication, database, and hosting.",
+  },
+  {
+    image: "/skills/php-icon.svg",
+    id: 25,
+    description:
+      "PHP is a server-side scripting language used for web development.",
   },
 ];
+
+

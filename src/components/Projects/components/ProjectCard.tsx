@@ -32,7 +32,7 @@ export const ProjectCard = ({
     <ProjectCardContainer className={className}>
       {type === "project" ? (
         <div className="d-flex align-items-center container-project">
-          <Img src={url} alt={title} />
+          {url ? <Img src={url} alt={title} /> : null}
           <div className="bottom ms-4">
             <div className="heading pb-2">{title}</div>
             <div className="description">{description}</div>
