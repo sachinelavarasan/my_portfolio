@@ -26,6 +26,8 @@ export interface Theme {
     button: string;
     background2: string;
     text: string;
+    cardBg: string,
+    cardBorder: string
   };
   breakpoints: {
     sm: string;
@@ -34,3 +36,11 @@ export interface Theme {
     xl: string;
   };
 }
+
+export interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  description: string[];
+};

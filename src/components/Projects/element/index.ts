@@ -14,112 +14,192 @@ export const ProjectContainer = styled.div`
 
 export const GridContainer = styled.div<{ theme: Theme }>`
   display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 3rem;
+
   padding: 3rem;
-  place-items: center;
-  column-gap: 2rem;
-  row-gap: 3rem;
+
+  width: 100%;
+
+  @media ${(props) => props.theme.breakpoints.lg} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    grid-template-columns: 1fr;
+  }
+
   @media ${(props) => props.theme.breakpoints.sm} {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     padding: 2rem;
-    padding-bottom: 0;
-    width: 100%;
   }
 `;
 
 export const ProjectCardContainer = styled.div<{ theme: Theme }>`
-  border-radius: 8px;
-  box-shadow: 0px 0px 3px 6px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 100%;
-  background: #212d45;
-  bottom: 0px;
   position: relative;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    ${({ theme }) => theme.colors.background2},
+    ${({ theme }) => theme.colors.background1}
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+
+  transform-style: preserve-3d;
 
   &:hover {
-    transition: all 0.1s ease-in;
-    bottom: -4px;
-    box-shadow: 0 0px 4px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.5),
+      0 0 20px ${({ theme }) => theme.colors.button}33;
   }
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 100%;
-  }
-  @media ${(props) => props.theme.breakpoints.lg} {
-    width: 100%;
-    .container-project{
-      display: flex;
-      flex-direction: column;
-    }
+
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      ${({ theme }) => theme.colors.button},
+      transparent
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
   }
   .heading {
-    font-weight: 800;
-    font-size: 1.9rem;
-    color: ${(props) => props.theme.colors.accent1};
-  }
-  .description {
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    padding: 0 2rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    display: grid;
+    place-items: center;
+    height: 100%;
+    font-size: 2.5rem;
+    color: #5274b7;
+    font-weight: bold;
+
+    animation: pulse 2s infinite;
+
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
   }
 `;
 
-export const Img = styled.img<{ theme: Theme }>`
-
-  max-width: 400px;
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    max-width: 100%;
-  }
-  /* width: 100%;
-  height: 200px;
-  object-fit: contain;
+export const Img = styled.img`
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
   object-position: center;
-  overflow: hidden; */
+
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+
+  transition: transform 0.5s ease;
+
+  ${ProjectCardContainer}:hover & {
+    transform: scale(1.05);
+  }
 `;
 
-export const ExternalLinks = styled.a`
-  color: #d4c0c0;
-  font-size: 1.6rem;
-  padding: 0.5rem 0.5rem;
-  background: #6b3030;
-  border-radius: 6px;
-  transition: 0.5s;
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
+export const CardContent = styled.div`
+  padding: 20px;
+`;
+
+export const Heading = styled.h3<{ theme: Theme }>`
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+
+  color: ${({ theme }) => theme.colors.accent1};
+`;
+
+export const Description = styled.p<{ theme: Theme }>`
+  font-size: 1.4rem;
+  line-height: 1.6;
+
+  color: ${({ theme }) => theme.colors.text};
+
+  margin-bottom: 15px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+export const TitleContent = styled.div<{ theme: Theme }>`
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+
+  color: ${({ theme }) => theme.colors.primary1};
+`;
+
+export const TagList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-bottom: 15px;
+`;
+
+export const Tag = styled.span<{ theme: Theme }>`
+  font-size: 1.1rem;
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: ${({ theme }) => theme.colors.background1};
+
+  border: 1px solid ${({ theme }) => theme.colors.button}55;
+
+  color: ${({ theme }) => theme.colors.primary1};
+
+  transition: 0.25s;
+
   &:hover {
-    background: #801414;
+    background: ${({ theme }) => theme.colors.button};
     color: white;
   }
 `;
 
-export const TagList = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
-`;
-export const Tag = styled.li<{ theme: Theme }>`
-  color: #d8bfbf;
-  font-size: 1.1rem;
-  font-weight: 600;
-  background-color: #243556;
-  padding: 0.5rem;
-  border-radius: 0.7rem;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 0.875rem;
-  }
-`;
+export const ExternalLinks = styled.a<{ theme: Theme }>`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-export const TitleContent = styled.div`
-  text-align: center;
-  z-index: 20;
-  width: 100%;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  background: ${({ theme }) => theme.colors.button};
+
+  color: white;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: ${({ theme }) => theme.colors.accent1};
+    color: black;
+  }
 `;

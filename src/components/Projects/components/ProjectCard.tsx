@@ -7,7 +7,11 @@ import {
   Tag,
   TagList,
   TitleContent,
+  CardContent,
+  Heading,
+  Description
 } from "../element";
+import { FaGithub } from "react-icons/fa";
 
 interface ProjectCardProps {
   title: string;
@@ -21,7 +25,6 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({
   title,
-  className,
   url,
   source,
   description,
@@ -29,31 +32,41 @@ export const ProjectCard = ({
   type,
 }: ProjectCardProps) => {
   return (
-    <ProjectCardContainer className={className}>
-      {type === "project" ? (
-        <div className="d-flex align-items-center container-project">
-          {url ? <Img src={url} alt={title} /> : null}
-          <div className="bottom ms-4">
-            <div className="heading pb-2">{title}</div>
-            <div className="description">{description}</div>
-            <div>
-              <TitleContent>Stack</TitleContent>
-              <TagList>
-                {tech.map((t, i) => {
-                  return <Tag key={i}>{t}</Tag>;
-                })}
-              </TagList>
-            </div>
-            <div className="mt-2 d-flex align-items-center justify-content-center">
-              <ExternalLinks href={source} target="_blank" className="mt-2">
-                Source
-              </ExternalLinks>
-            </div>
-          </div>
-        </div>
+    <ProjectCardContainer>
+
+      {type ? (
+        <>
+          {url && <Img src={url} alt={title} />}
+
+          <CardContent>
+
+            <Heading>{title}</Heading>
+
+            <Description>{description}</Description>
+
+            <TitleContent>Tech Stack</TitleContent>
+
+            <TagList>
+              {tech.map((t, i) => (
+                <Tag key={i}>{t}</Tag>
+              ))}
+            </TagList>
+
+            <ExternalLinks
+              href={source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+              Source Code
+            </ExternalLinks>
+
+          </CardContent>
+        </>
       ) : (
-        <div className="heading pb-2 mt-3">{title}....</div>
-      )}
+        <div className="heading p-4">{title}....</div>
+      )
+      }
     </ProjectCardContainer>
   );
 };

@@ -14,6 +14,8 @@ const defaultTheme: Theme = {
     button: "hsl(205.1,100%,36.1%)",
     background2: "hsl(232.7,27.3%,23.7%)",
     text: "rgba(255, 255, 255, 0.5)",
+    cardBg: "#243556",
+    cardBorder: "#5274b7"
   },
   // Breakpoints for responsive design
   breakpoints: {

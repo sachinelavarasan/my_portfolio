@@ -10,22 +10,23 @@ import {
 
 export const Projects = () => {
   const projectsMemoized = useMemo(() => {
-    if (projects.length % 2 == 1) {
-      return [
-        ...projects,
-        {
-          title: "Upcoming",
-          type: "empty",
-          id: 999,
-          description: "",
-          image: "",
-          tags: [],
-          source: "",
-        },
-      ];
-    }
-    return projects;
-  }, []);
+
+  const isOdd = projects.length % 2 !== 0;
+  if (!isOdd) return projects;
+
+    return [
+      ...projects,
+      {
+        title: "Upcoming",
+        type: "",
+        id: `upcoming-${projects.length}`,
+        description: "",
+        image: "",
+        tags: [],
+        source: "",
+      },
+    ];
+}, [projects]);
 
   return (
     <Section id="projects">

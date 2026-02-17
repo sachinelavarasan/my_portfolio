@@ -64,7 +64,7 @@ export const SkillCardContainer = styled.div<{ theme: Theme }>`
   border-radius: 8px;
   box-shadow: 0px 0px 3px 7px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  background: #243556;
+  background: ${({ theme }) => theme.colors.cardBg};
   border: 2px solid #5274b7;
   width: 250px;
   height: 200px;

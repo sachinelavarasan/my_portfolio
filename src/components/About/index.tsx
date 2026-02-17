@@ -5,7 +5,7 @@ import {
   SectionDivider,
   SectionTitle,
 } from "../../styles/GlobalComponents";
-// role="img" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"
+import ExperienceTimeline from "./WorkExperience";
 export const About = () => {
   return (
     <Section id="about">
@@ -14,18 +14,18 @@ export const About = () => {
         <SectionTitle main>About Me</SectionTitle>
         <div className="entire-div">
           <div className="subhead">
-            An enthusiastic Full stack Javascript developer with successful
-            experience in NodeJS, MongoDB, Mysql, HTML & CSS, Javascript, PHP,
-            and hands-on experience in React. Proficient with database programs
-            including MySQL. Leverage technical, analytical and problem solving
-            skills to create dynamic and highly scalable web applications with
-            minimalized code
+            Full Stack Developer with strong experience in building scalable, high-performance web applications using Node.js, NestJS, and TypeScript. Proven
+            ability to design modular, service-oriented backend architectures for enterprise SaaS platforms. Hands-on expertise in PostgreSQL, MySQL, MongoDB,
+            and ORM-based data modelling, with experience in real-time and event-driven systems using Socket.IO. Skilled in performance optimisation, API
+            scalability, CI/CD automation, and production-ready deployments. Collaborative team player with a strong ownership mindset and continuous learning
+            approach.
           </div>
           <div className="grid-container">
             <div className="d-flex align-items-center justify-content-center">
               <span className="heading">Work Experience</span>
             </div>
-            <div className="experience">
+            <ExperienceTimeline/>
+            {/* <div className="experience">
               <div className="div1">
                 <div>
                   <p className="role">Software Engineer </p>
@@ -52,7 +52,7 @@ export const About = () => {
                 <p className="location">Gnanaguru Technologies , coimbatore</p>
                 <p className="year">Dec 2020 - Feb 2021</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </AboutContainer>

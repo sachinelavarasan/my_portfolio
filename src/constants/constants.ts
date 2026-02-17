@@ -1,4 +1,4 @@
-import { Project, Skill } from "../types";
+import { Experience, Project, Skill } from "../types";
 
 export const projects: Project[] = [
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description:
       "Food app built by React Native,Sanity Cms as backend.It Used to food order with expo Geolocation",
     image:
-      "/projectImage/reactnative-tailwind.png",
+      "/projectImage/food-order-app.png",
     tags: [
       "React Native",
       "Sanity Io",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
   title: "Expensify",
   description:
     "A modern cross-platform expense tracking app built with Expo and React Native. Features secure authentication with Clerk, expense analytics with charts, and Excel export support. Runs on Android, iOS, and Web.",
-  image: "",
+   image: "/projectImage/expensify-app.png",
   tags: [
     "Expo",
     "React Native",
@@ -282,6 +282,45 @@ export const skills: Skill[] = [
     id: 25,
     description:
       "PHP is a server-side scripting language used for web development.",
+  },
+];
+
+
+export const experiences: Experience[] = [
+  {
+    title: "Senior Software Engineer",
+    company: "Bititude Technologies",
+    location: "Calicut, India",
+    period: "Aug 2024 - Present",
+    description: [
+      "Built scalable REST and GraphQL APIs using Node.js, Express, and NestJS",
+      "Migrated production backend from Express.js to NestJS",
+      "Implemented real-time communication using Socket.IO",
+      "Optimised database queries and improved API performance",
+      "Integrated external services for compliance and reporting workflows",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    company: "Bititude Technologies",
+    location: "Calicut, India",
+    period: "Mar 2021 - Jul 2024",
+    description: [
+      "Designed and implemented REST APIs using Node.js and Express",
+      "Developed backend services for enterprise applications",
+      "Built user management and reporting modules",
+    ],
+  },
+  {
+    title: "Junior PHP Developer",
+    company: "Gnanaguru Technologies",
+    location: "Coimbatore, India",
+    period: "Dec 2020 - 2021",
+    description: [
+      "Developed vehicle insurance renewal application",
+      "Worked with PHP, JavaScript, AJAX, and MySQL",
+      "Implemented form processing and validation",
+    ],
   },
 ];
 
