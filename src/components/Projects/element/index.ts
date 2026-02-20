@@ -51,15 +51,14 @@ export const ProjectCardContainer = styled.div<{ theme: Theme }>`
 
   overflow: hidden;
 
-  transition: all 0.35s ease;
-
   transform-style: preserve-3d;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.5),
-      0 0 20px ${({ theme }) => theme.colors.button}33;
+    transform: translateY(-6px);
+    border-color: rgba(19, 173, 199, 0.5);
+    box-shadow: 0 12px 40px rgba(19, 173, 199, 0.15);
   }
 
 
@@ -107,12 +106,6 @@ export const Img = styled.img`
 
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-
-  transition: transform 0.5s ease;
-
-  ${ProjectCardContainer}:hover & {
-    transform: scale(1.05);
-  }
 `;
 
 export const CardContent = styled.div`

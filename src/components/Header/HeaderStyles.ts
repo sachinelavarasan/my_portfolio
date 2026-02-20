@@ -3,21 +3,15 @@ import styled from "styled-components";
 import Link from "next/link";
 import { Theme } from "../../types";
 
-export const Container = styled.div<{ theme: Theme }>`
+export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 2rem;
-  padding: 1rem;
-  padding-top: 2rem;
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 60px);
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
-  }
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 16px 48px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 `;
 export const Div1 = styled.div<{ theme: Theme }>`
   grid-area: 1 / 1 / 2 / 2;
@@ -28,12 +22,16 @@ export const Div1 = styled.div<{ theme: Theme }>`
     grid-area: 1 / 1 / 2 / 3;
   }
 `;
-export const Div2 = styled.div<{ theme: Theme }>`
-  grid-area: 1 / 2 / 2 / 4;
+export const Div2 = styled.ul<{ theme: Theme }>`
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  gap: 32px;
+  justify-content: flex-end;
+
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 2 / 2 / 3 / 5;
+    grid-area: 2 / 1 / 3 / 5;
+    justify-content: center;
+    gap: 20px;
   }
 `;
 export const Div3 = styled.div<{ theme: Theme }>`
@@ -47,7 +45,7 @@ export const Div3 = styled.div<{ theme: Theme }>`
   }
 `;
 
-// Navigation Links
+
 export const NavLink = styled(Link)<{ theme: Theme }>`
   font-size: 2rem;
   line-height: 32px;
@@ -66,7 +64,6 @@ export const NavLink = styled(Link)<{ theme: Theme }>`
   }
 `;
 
-/// DropDown Contact
 export const ContactDropDown = styled.button<{ theme: Theme }>`
   border: none;
   display: flex;
@@ -117,7 +114,6 @@ export const NavProductsIcon = styled(IoIosArrowDropdown)<NavProductsIconProps>`
   }
 `;
 
-// Social Icons
 
 export const SocialIcons = styled.a`
   transition: 0.3s ease;

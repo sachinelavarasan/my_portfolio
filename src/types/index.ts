@@ -43,4 +43,27 @@ export interface Experience {
   location: string;
   period: string;
   description: string[];
+}
+
+export interface Achievement {
+  id: number;
+  icon: string;
+  title: string;
+  meta?: string;
+  description: string;
+}
+
+export interface Stat {
+  id: number;
+  number: string;
+  label: string;
+}
+
+export interface Certification {
+  id: number;
+  title: string;
+  issuer: string;
+  date: string;
+  description?: string;
+  link?: string;
 };

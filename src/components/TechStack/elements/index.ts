@@ -65,14 +65,15 @@ export const SkillCardContainer = styled.div<{ theme: Theme }>`
   box-shadow: 0px 0px 3px 7px rgba(0, 0, 0, 0.1);
   padding: 10px;
   background: ${({ theme }) => theme.colors.cardBg};
-  border: 2px solid #5274b7;
+  border: 1px solid #5274b7;
   width: 250px;
   height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 500ms 100ms;
+  backdrop-filter: blur(6px);
+  transition: transform 500ms 100ms, border-color 0.3s ease, box-shadow 0.3s ease;
 
   .block {
     display: none;
@@ -83,8 +84,9 @@ export const SkillCardContainer = styled.div<{ theme: Theme }>`
     letter-spacing: 0.5px;
   }
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0px 4px 6px rgba(0, 0, 0, 0.4);
+    border-color: #5274b780;
+    box-shadow: 0 12px 40px #5274b726;
+    transform: scale(1.05);
     .block {
       display: block;
       animation: fadeIn 1s;

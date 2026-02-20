@@ -1,4 +1,4 @@
-import { Experience, Project, Skill } from "../types";
+import { Achievement, Experience, Project, Skill, Stat, Certification } from "../types";
 
 export const projects: Project[] = [
   {
@@ -325,3 +325,98 @@ export const experiences: Experience[] = [
 ];
 
 
+export const achievements: Achievement[] = [
+    {
+    id: 0,
+    icon: "🏆",
+    title: "Years of Excellence Award",
+    meta: "Bititude · 2024",
+    description:
+      "Recognized for consistent outstanding performance, technical excellence, and valuable contribution to the organization.",
+  },
+  {
+    id: 1,
+    icon: "🥇",
+    title: "Monthly Performer Award",
+    meta: "Bititude · Dec 2024",
+    description:
+      "Awarded for exceptional performance, productivity, and successful delivery of key project milestones.",
+  },
+  {
+    id: 2,
+    icon: "🎯",
+    title: "Perfect Attendance Award",
+    meta: "Bititude · 2024",
+    description:
+      "Recognized for maintaining perfect attendance and demonstrating strong professional commitment and reliability.",
+  },
+  {
+    id: 3,
+    icon: "🚀",
+    title: "6+ Production Projects Delivered",
+    description:
+      "Successfully developed and deployed enterprise applications as part of the Bititude engineering team.",
+  },
+  {
+    id: 4,
+    icon: "💡",
+    title: "7+ Personal Projects Built",
+    description:
+      "Designed and developed full-stack applications independently to strengthen expertise in modern web technologies.",
+  },
+  {
+    id: 5,
+    icon: "🛠️",
+    title: "20+ Technologies Worked With",
+    description:
+      "Including Angular, React, TypeScript, Node.js, NestJS, Flutter, PostgreSQL, Docker, and modern frontend/backend tools.",
+  },
+  {
+    id: 6,
+    icon: "⏱️",
+    title: "5+ Years of Professional Full Stack Development",
+    description:
+      "Delivered scalable frontend and backend applications using Angular, React, TypeScript, Node.js, and NestJS.",
+  },
+];
+
+export const stats: Stat[] = [
+  { id: 0, number: "5+",  label: "Years of Experience" },
+  { id: 1, number: "6+",  label: "Production Projects" },
+  { id: 2, number: "7+",  label: "Personal Projects" },
+  { id: 3, number: "20+", label: "Technologies" },
+];
+
+export const certifications: Certification[] = [
+  {
+    id: 0,
+    title: "Socket.IO",
+    issuer: "Udemy",
+    date: "09/2022",
+    link: "https://www.udemy.com/certificate/UC-39c4fbb2-f3e8-4c6b-92be-fd930a51ef81/",
+  },
+  {
+    id: 1,
+    title: "Python For Everybody",
+    issuer: "Coursera",
+    date: "06/2020",
+    description: "The specialization certificate of Python",
+    link: "https://www.coursera.org/account/accomplishments/specialization/VNUVSBCUSUL5",
+  },
+  {
+    id: 2,
+    title: "GoLang",
+    issuer: "KodeKloud",
+    date: "01/2026",
+    description: "Beginner level certification covering Go fundamentals and core concepts.",
+    link: "https://learn.kodekloud.com/certificate/031ca0b5-2fae-4de6-917d-c75b462fc170",
+  },
+   {
+    id: 3,
+    title: "Docker Training Course for the Absolute Beginner",
+    issuer: "KodeKloud",
+    date: "02/2026",
+    description: "Beginner level certification with hands-on labs covering Docker fundamentals, containers, images, and deployment.",
+    link: "https://learn.kodekloud.com/certificate/d12dca5b-859d-4610-a4a7-353066210282",
+  },
+];
