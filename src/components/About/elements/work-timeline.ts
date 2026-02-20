@@ -28,6 +28,14 @@ export const Timeline = styled.div`
     left: 50%;
     transform: translateX(-50%);
   }
+  @media (max-width: 768px) {
+    padding-left: 50px;
+
+    &::after {
+      left: 20px;
+      transform: none;
+    }
+  }
 `;
 
 export const TimelineItem = styled.div<{ $isLeft: boolean }>`
@@ -36,6 +44,11 @@ display: flex;
     $isLeft ? "flex-start" : "flex-end"};
   position: relative;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+
 `;
 
 export const IconWrapper = styled.div`
@@ -67,6 +80,10 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 0px 4px 6px rgba(0, 0, 0, 0.4);
+  }
+
+   @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -125,13 +142,30 @@ export const Content = styled.div<{ $isLeft: boolean }>`
         left: -40px;
       `}
   }
+  
+   @media (max-width: 768px) {
+    width: 100%;
+
+    &::after {
+      left: -30px;
+      right: auto;
+      top: 10px;
+    }
+  }
 `;
 
 export const Center = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    left: -20px;
+    transform: none;
+    top: -10px;
+  }
+
 `;
 
 const blink = keyframes`

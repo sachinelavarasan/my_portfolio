@@ -2,7 +2,7 @@ import React from "react";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { SiDevdotto } from "react-icons/si";
 
-import { SocialIcons } from "../Header/HeaderStyles";
+import { SocialIcons } from "../Header/elements";
 import {
   CompanyContainer,
   FooterWrapper,

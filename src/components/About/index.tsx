@@ -5,7 +5,7 @@ import {
   SectionDivider,
   SectionTitle,
 } from "../../styles/GlobalComponents";
-import ExperienceTimeline from "./WorkExperience";
+import ExperienceTimeline from "./work-experience";
 export const About = () => {
   return (
     <Section id="about">

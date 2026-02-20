@@ -1,17 +1,25 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { DiCssdeck } from "react-icons/di";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 import {
   Container,
   Div1,
   Div2,
   NavLink,
-} from "./HeaderStyles";
+  MobileIcon,
+} from "./elements";
 
 export const Header = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <Container as="nav">
+    <Container>
+
       <Div1>
         <Link
           href="/"
@@ -25,54 +33,24 @@ export const Header = () => {
             fontSize: "18px",
           }}
         >
-          <DiCssdeck size="2.5rem" />
+          <DiCssdeck size="2rem" />
           Elavarasan.dev
         </Link>
       </Div1>
 
-      <Div2 as="ul" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+      <MobileIcon onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </MobileIcon>
 
-        <li>
-          <NavLink href="#about">
-            About
-          </NavLink>
-        </li>
+      <Div2 $open={isOpen}>
 
-        <li>
-          <NavLink href="#tech">
-            Tech Stack
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink href="#achievements">
-            Achievements
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink href="#certifications">
-            Certifications
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink href="#projects">
-            Projects
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink href="#github">
-            GitHub
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink href="#contact">
-            Contact
-          </NavLink>
-        </li>
+        <li><NavLink href="#about">About</NavLink></li>
+        <li><NavLink href="#tech">Tech Stack</NavLink></li>
+        <li><NavLink href="#achievements">Achievements</NavLink></li>
+        <li><NavLink href="#certifications">Certifications</NavLink></li>
+        <li><NavLink href="#projects">Projects</NavLink></li>
+        <li><NavLink href="#github">GitHub</NavLink></li>
+        <li><NavLink href="#contact">Contact</NavLink></li>
 
       </Div2>
 
