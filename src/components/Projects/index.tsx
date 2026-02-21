@@ -31,7 +31,7 @@ export const Projects = () => {
   return (
     <Section id="projects">
       <SectionDivider />
-      <SectionTitle main>Projects</SectionTitle>
+      <SectionTitle $main>Projects</SectionTitle>
       <GridContainer>
         {projectsMemoized.map((item) => (
           <ProjectCard

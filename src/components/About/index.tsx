@@ -5,13 +5,13 @@ import {
   SectionDivider,
   SectionTitle,
 } from "../../styles/GlobalComponents";
-import ExperienceTimeline from "./work-experience";
+import ExperienceTimeline from "../ExperienceTimeline";
 export const About = () => {
   return (
     <Section id="about">
       <AboutContainer>
         <SectionDivider />
-        <SectionTitle main>About Me</SectionTitle>
+        <SectionTitle $main>About Me</SectionTitle>
         <div className="entire-div">
           <div className="subhead">
             Senior Full Stack Developer with 5+ years of experience building scalable web applications using modern frontend and backend technologies. Focused on performance, clean architecture, and delivering reliable production-ready solutions.

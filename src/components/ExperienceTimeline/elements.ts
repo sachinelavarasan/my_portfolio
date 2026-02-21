@@ -1,3 +1,5 @@
+'use client';
+
 import styled, { css, keyframes } from "styled-components";
 
 export const Section = styled.section`

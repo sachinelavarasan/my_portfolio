@@ -22,7 +22,7 @@ export const Achievements = () => {
   return (
     <Section id="achievements">
       <SectionDivider />
-      <SectionTitle main>Achievements</SectionTitle>
+      <SectionTitle $main>Achievements</SectionTitle>
       <StatsStrip>
         {stats.map((stat) => (
           <StatCard key={stat.id}>

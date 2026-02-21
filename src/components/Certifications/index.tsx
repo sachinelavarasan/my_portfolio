@@ -20,7 +20,7 @@ export const Certifications = () => {
   return (
     <Section id="certifications">
       <SectionDivider />
-      <SectionTitle main>Certifications</SectionTitle>
+      <SectionTitle $main>Certifications</SectionTitle>
 
       <CertificationsGrid>
         {certifications.map((cert, index) => (

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from "react";
 import { AiFillGithub, AiFillStar } from "react-icons/ai";
 import { BiGitRepoForked } from "react-icons/bi";
@@ -52,7 +54,7 @@ export const GitHub = () => {
 
   useEffect(() => {
     fetch(
-      `https://api.github.com/users/${GH_USER}/repos?sort=stars&per_page=6&type=public`
+      `https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=6&type=public&direction=desc`
     )
       .then((r) => r.json())
       .then((data: Repo[]) => {
@@ -66,7 +68,7 @@ export const GitHub = () => {
   return (
     <Section id="github">
       <SectionDivider />
-      <SectionTitle main>GitHub Activity</SectionTitle>
+      <SectionTitle $main>GitHub Activity</SectionTitle>
 
       <GHStatsRow>
         <img
@@ -84,7 +86,7 @@ export const GitHub = () => {
       <SectionSubLabel>Contribution Graph</SectionSubLabel>
       <GraphWrapper>
         <img
-          src={`https://github-readme-activity-graph.vercel.app/graph?username=${GH_USER}&theme=react-dark&hide_border=true&area=true&color=13ADC7&line=945DD6&point=ffffff&area_color=945DD620&custom_title=Contribution%20Activity`}
+          src={`https://github-readme-activity-graph.vercel.app/graph?username=${GH_USER}&theme=react-dark&hide_border=true&area=true&color=13ADC7&line=945DD6&point=ffffff&area_color=945DD620&custom_title=Contribution%20Activity&days=7`}
           alt="GitHub Contribution Graph"
           loading="lazy"
         />

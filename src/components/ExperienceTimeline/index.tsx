@@ -1,6 +1,6 @@
 import { FaBriefcase } from "react-icons/fa";
 
-import { Section, Timeline, TimelineItem, Card, Role, Company, List, Location, Content, Center, Icon } from './elements/work-timeline';
+import { Section, Timeline, TimelineItem, Card, Role, Company, List, Location, Content, Center, Icon } from './elements';
 import { experiences } from '../../constants/constants';
 
 

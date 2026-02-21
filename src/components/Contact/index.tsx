@@ -17,7 +17,7 @@ export const Contact = () => {
   return (
     <Section id="contact">
       <SectionDivider />
-      <SectionTitle main>Let&apos;s Work Together</SectionTitle>
+      <SectionTitle $main>Let&apos;s Work Together</SectionTitle>
 
       <ContactWrapper>
         <ContactTagline>

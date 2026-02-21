@@ -13,7 +13,7 @@ export const TechStack = () => {
     <Section id="tech">
       <TechStackContainer>
         <SectionDivider />
-        <SectionTitle main>Tech Stack</SectionTitle>
+        <SectionTitle $main>Tech Stack</SectionTitle>
         <div className="entire-div">
           <p className="subhead">
             {" "}
