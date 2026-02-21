@@ -6,6 +6,8 @@ export interface Project {
   source: string;
   id: number;
   type: string;
+  live?: string;
+  demo?: string;
 }
 
 export interface Skill {

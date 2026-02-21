@@ -24,6 +24,8 @@ export const Projects = () => {
         image: "",
         tags: [],
         source: "",
+        live: "",
+        demo: ""
       },
     ];
 }, [projects]);
@@ -42,6 +44,8 @@ export const Projects = () => {
             tech={item.tags}
             source={item.source}
             type={item.type}
+            live={item.live}
+            demo={item.demo}
           />
         ))}
       </GridContainer>

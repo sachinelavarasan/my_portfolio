@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   ExternalLinks,
   Img,
@@ -11,25 +10,29 @@ import {
   Heading,
   Description
 } from "../element";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectCardProps {
   title: string;
   className?: string;
-  url: string;
-  source: string;
+  url: string;      
+  source: string; 
+  live?: string;  
   description: string;
   tech: string[];
   type: string;
+  demo?: string;
 }
 
 export const ProjectCard = ({
   title,
   url,
   source,
+  live,
   description,
   tech,
   type,
+  demo
 }: ProjectCardProps) => {
   return (
     <ProjectCardContainer>
@@ -57,16 +60,38 @@ export const ProjectCard = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub />
+              <FaGithub style={{ marginRight: "6px" }} />
               Source Code
             </ExternalLinks>
+
+            {live && (
+              <ExternalLinks
+                href={live}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginLeft: "10px" }}
+              >
+                <FaExternalLinkAlt style={{ marginRight: "6px" }} />
+                Live Demo
+              </ExternalLinks>
+            )}
+            {demo && (
+              <ExternalLinks
+                href={demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ marginLeft: "10px" }}
+              >
+                <FaExternalLinkAlt style={{ marginRight: "6px" }} />
+                Demo Video
+              </ExternalLinks>
+            )}
 
           </CardContent>
         </>
       ) : (
         <div className="heading p-4">{title}....</div>
-      )
-      }
+      )}
     </ProjectCardContainer>
   );
 };

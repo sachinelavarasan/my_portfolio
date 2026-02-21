@@ -54,23 +54,6 @@ export const projects: Project[] = [
     type: "project",
   },
   {
-    title: "Github Finder",
-    description:
-      "You can search github users and see their github account overview.",
-    image: "/projectImage/githubfinder.png",
-    tags: [
-      "React Native",
-      "Node js",
-      "Express js",
-      "Github Api",
-      "Expo",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/GitHubFinder",
-    id: 3,
-    type: "project",
-  },
-  {
     title: "Learn Tech",
     description:
       "Individuals can become teachers and learn from others by sharing their knowledge with less investment",
@@ -84,8 +67,9 @@ export const projects: Project[] = [
     ],
     source:
       "https://github.com/sachinelavarasan/course-platform",
-    id: 4,
+    id: 3,
     type: "project",
+    live: "https://course-platform-xi-red.vercel.app",
   },
   {
     title: "Shopping Cart",
@@ -104,23 +88,44 @@ export const projects: Project[] = [
     type: "project",
   },
   {
-  title: "Expensify",
-  description:
-    "A modern cross-platform expense tracking app built with Expo and React Native. Features secure authentication with Clerk, expense analytics with charts, and Excel export support. Runs on Android, iOS, and Web.",
-   image: "/projectImage/expensify-app.png",
-  tags: [
-    "Expo",
-    "React Native",
-    "TypeScript",
-    "Expo Router",
-    "React Query",
-    "Clerk",
-    "XLSX",
-  ],
-  source:
-    "https://github.com/sachinelavarasan/expensify",
-  id: 6,
-  type: "project",
+    title: "LendsLog",
+    description:
+      "A cross-platform app to track money lent and borrowed, built with Expo and React Native. Features real-time updates, reminders, and organized transaction management. Runs on Android",
+    image: "/projectImage/lendslog-app.png",
+    tags: [
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "Expo Router",
+      "Redux Toolkit",
+      "Firebase",
+      "React Hook Form"
+    ],
+    source: "https://github.com/sachinelavarasan/lendslog",
+    id: 6,
+    type: "project",
+    demo: "https://drive.google.com/file/d/1LSHHHV57Cze7nOQE6MQDZS6_RmB-5UFc/view?usp=sharing"
+  },
+  {
+    title: "Expensify",
+    description:
+      "A modern cross-platform expense tracking app built with Expo and React Native. Features secure authentication with Clerk, expense analytics with charts, and Excel export support. Runs on Android, iOS, and Web.",
+    image: "/projectImage/expensify-app.png",
+    tags: [
+      "Expo",
+      "React Native",
+      "TypeScript",
+      "Expo Router",
+      "React Query",
+      "Clerk",
+      "XLSX",
+      "Play Store"
+    ],
+    source:
+      "https://github.com/sachinelavarasan/expensify",
+    id: 7,
+    type: "project",
+    demo: "https://drive.google.com/file/d/1Tj7eqEl7zg9TbyZuOpYgxO-ytLxkjF_y/view?usp=sharing"
   },
 ];
 
@@ -326,7 +331,7 @@ export const experiences: Experience[] = [
 
 
 export const achievements: Achievement[] = [
-    {
+  {
     id: 0,
     icon: "🏆",
     title: "Years of Excellence Award",
@@ -381,9 +386,9 @@ export const achievements: Achievement[] = [
 ];
 
 export const stats: Stat[] = [
-  { id: 0, number: "5+",  label: "Years of Experience" },
-  { id: 1, number: "6+",  label: "Production Projects" },
-  { id: 2, number: "7+",  label: "Personal Projects" },
+  { id: 0, number: "5+", label: "Years of Experience" },
+  { id: 1, number: "6+", label: "Production Projects" },
+  { id: 2, number: "7+", label: "Personal Projects" },
   { id: 3, number: "20+", label: "Technologies" },
 ];
 
@@ -411,7 +416,7 @@ export const certifications: Certification[] = [
     description: "Beginner level certification covering Go fundamentals and core concepts.",
     link: "https://learn.kodekloud.com/certificate/031ca0b5-2fae-4de6-917d-c75b462fc170",
   },
-   {
+  {
     id: 3,
     title: "Docker Training Course for the Absolute Beginner",
     issuer: "KodeKloud",
