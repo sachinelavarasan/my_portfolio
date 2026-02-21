@@ -8,16 +8,17 @@ import {
   TitleContent,
   CardContent,
   Heading,
-  Description
+  Description,
+  Row
 } from "../element";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 interface ProjectCardProps {
   title: string;
   className?: string;
-  url: string;      
-  source: string; 
-  live?: string;  
+  url: string;
+  source: string;
+  live?: string;
   description: string;
   tech: string[];
   type: string;
@@ -55,38 +56,37 @@ export const ProjectCard = ({
               ))}
             </TagList>
 
-            <ExternalLinks
-              href={source}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub style={{ marginRight: "6px" }} />
-              Source Code
-            </ExternalLinks>
-
-            {live && (
+            <Row>
               <ExternalLinks
-                href={live}
+                href={source}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ marginLeft: "10px" }}
               >
-                <FaExternalLinkAlt style={{ marginRight: "6px" }} />
-                Live Demo
+                <FaGithub style={{ marginRight: "6px" }} />
+                Source Code
               </ExternalLinks>
-            )}
-            {demo && (
-              <ExternalLinks
-                href={demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ marginLeft: "10px" }}
-              >
-                <FaExternalLinkAlt style={{ marginRight: "6px" }} />
-                Demo Video
-              </ExternalLinks>
-            )}
 
+              {live && (
+                <ExternalLinks
+                  href={live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaExternalLinkAlt style={{ marginRight: "6px" }} />
+                  Live Demo
+                </ExternalLinks>
+              )}
+              {demo && (
+                <ExternalLinks
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaExternalLinkAlt style={{ marginRight: "6px" }} />
+                  Demo Video
+                </ExternalLinks>
+              )}
+            </Row>
           </CardContent>
         </>
       ) : (

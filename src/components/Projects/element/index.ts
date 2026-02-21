@@ -31,11 +31,12 @@ export const GridContainer = styled.div<{ theme: Theme }>`
 
   @media ${(props) => props.theme.breakpoints.md} {
     grid-template-columns: 1fr;
+    padding: 0rem;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 0rem;
   }
 `;
 
@@ -104,10 +105,15 @@ export const Img = styled.img`
   width: 100%;
   height: 240px;
   object-fit: cover;
-  object-position: center;
 
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+   @media (max-width: 768px) {
+    height: 180px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    object-fit: fill;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -197,4 +203,10 @@ export const ExternalLinks = styled.a<{ theme: Theme }>`
     background: ${({ theme }) => theme.colors.accent1};
     color: black;
   }
+`;
+export const Row = styled.div<{ theme: Theme }>`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 `;

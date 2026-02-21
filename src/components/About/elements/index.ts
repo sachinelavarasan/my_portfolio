@@ -81,4 +81,17 @@ export const AboutContainer = styled.div<{ theme: Theme }>`
       }
     }
   }
+  @media (max-width: 768px) {
+  .entire-div {
+      .subhead {
+        font-size: 1.5rem;
+      }
+      .grid-container{
+         .heading {
+        font-weight: 700;
+        font-size: 2.5rem;
+        }
+      }
+   }
+  }
 `;

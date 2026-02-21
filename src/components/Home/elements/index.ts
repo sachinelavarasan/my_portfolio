@@ -29,6 +29,13 @@ export const HomeContainer = styled.section`
     display: flex;
     align-items: center;
   }
+  @media (max-width: 768px) {
+    .left {
+      .hometext {
+        font-size: 2.5rem;
+      }
+    }
+  }
 `;
 
 export const HeroButtons = styled.div`
