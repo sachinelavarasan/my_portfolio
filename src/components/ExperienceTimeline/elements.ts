@@ -5,6 +5,9 @@ import styled, { css, keyframes } from "styled-components";
 export const Section = styled.section`
   padding: 80px 20px;
   background: ${({ theme }) => theme.colors.background1};
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -31,10 +34,10 @@ export const Timeline = styled.div`
     transform: translateX(-50%);
   }
   @media (max-width: 768px) {
-    padding-left: 50px;
+    padding-left: 20px;
 
     &::after {
-      left: 20px;
+      left: -10px;
       transform: none;
     }
   }
@@ -86,6 +89,7 @@ export const Card = styled.div`
 
    @media (max-width: 768px) {
     width: 100%;
+    padding: 10px 20px;
   }
 `;
 
@@ -120,6 +124,9 @@ export const List = styled.ul`
     font-size: 14px;
     color: ${({ theme }) => theme.colors.primary1};
     opacity: 0.85;
+  }
+  @media (max-width: 768px) {
+    padding-left: 10px;
   }
 `;
 

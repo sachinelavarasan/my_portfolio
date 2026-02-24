@@ -13,9 +13,8 @@ export const Home = () => {
     <Section>
       <HomeContainer>
         <div className="left">
-          <div className="hometext">Hello 👋,</div>
-          <div className="hometext">I'm&nbsp;<p className="name-color">Elavarasan M</p></div>
-          <div className="hometext">I build things for web and mobile</div>
+          <div className="hometext"><p>Hello 👋,</p><p className="name-color">I'm Elavarasan M</p></div>
+          <div className="mt-4 hometext small">Senior Full-Stack Engineer scaling SaaS products with NestJS and React Native</div>
           
           <HeroButtons>
             <ResumeButton

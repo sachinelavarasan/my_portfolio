@@ -35,6 +35,9 @@ export const TechStackContainer = styled.div<{ theme: Theme }>`
       ::-webkit-scrollbar {
         display: none;
       }
+      @media (max-width: 768px) {
+         margin: 0rem;
+      }
     }
     .grid-container {
       width: 100%;
@@ -45,10 +48,10 @@ export const TechStackContainer = styled.div<{ theme: Theme }>`
       justify-items: center;
       grid-row-gap: 6rem;
       padding: 30px 0;
-      @media ${(props) => props.theme.breakpoints.sm} {
+      @media (max-width: 768px) {
         width: 100%;
         grid-template-columns: auto;
-        padding: 30px 30px;
+        padding: 20px 10px;
       }
     }
   }

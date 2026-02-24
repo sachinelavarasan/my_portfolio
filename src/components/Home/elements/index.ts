@@ -7,14 +7,19 @@ export const HomeContainer = styled.section`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 7rem 0;
+  padding: 6rem 0;
   .left {
     .hometext {
+       p {
+        margin-bottom: 0
+       }
       font-style: normal;
       font-weight: 700;
       font-size: 3.5rem;
       display: flex;
       letter-spacing: -1px;
+      display:flex;
+      gap: 12px;
 
       .name-color {
         background: linear-gradient(90deg, #13b0f5 -2.06%, #e70faa 100%);
@@ -24,6 +29,12 @@ export const HomeContainer = styled.section`
         margin: unset;
       }
     }
+    .small{
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: ${(props) => props.theme.colors.text};
+      max-width: 80%;
+    }
   }
   .right {
     display: flex;
@@ -32,7 +43,13 @@ export const HomeContainer = styled.section`
   @media (max-width: 768px) {
     .left {
       .hometext {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .small{
+        font-size: 1.5rem;
       }
     }
   }
@@ -70,10 +87,11 @@ export const ResumeButton = styled.a`
     box-shadow: 0 12px 36px rgba(19, 173, 199, 0.4);
   }
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 100%;
+  @media (max-width: 768px) {
     justify-content: center;
-    padding: 14px 24px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 700;
   }
 `;
 
