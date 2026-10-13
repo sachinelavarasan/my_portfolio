@@ -1,35 +1,43 @@
-import {
-  HomeContainer,
-  HeroButtons,
-  ResumeButton,
-  ProjectsButton,
-} from "./elements";
 import Image from "next/image";
+import { FiDownload } from "react-icons/fi";
+
+import { HomeContainer, HeroButtons, Greeting, Name, Tagline, Photo } from "./elements";
 import myphotoIcon from "../../../public/myphoto.png";
-import { Section } from "../../styles/GlobalComponents";
+import { OutlineButton, PrimaryButton, Section } from "../../styles/GlobalComponents";
 
 export const Home = () => {
   return (
     <Section>
       <HomeContainer>
         <div className="left">
-          <div className="hometext"><p>Hello 👋,</p><p className="name-color">I'm Elavarasan M</p></div>
-          <div className="mt-4 hometext small">Senior Full-Stack Engineer scaling SaaS products with NestJS and React Native</div>
-          
+          <Greeting>Hello 👋, I&apos;m</Greeting>
+          <Name>Elavarasan Murugesan</Name>
+          <Tagline>Senior Full-Stack Engineer scaling SaaS products with NestJS and React Native</Tagline>
+
           <HeroButtons>
-            <ResumeButton
+            <PrimaryButton href="#projects">View Projects</PrimaryButton>
+            <OutlineButton href="#contact">Contact</OutlineButton>
+            <OutlineButton
               href="https://drive.google.com/uc?export=download&id=1Qat_-fr42dCo4vnTJgn5nuINmB6iOwy6"
               download
               target="_blank"
               rel="noopener noreferrer"
             >
-              📄 Download Resume
-            </ResumeButton>
+              <FiDownload aria-hidden="true" />
+              Download Resume
+            </OutlineButton>
           </HeroButtons>
         </div>
-        <div className="right">
-          <Image src={myphotoIcon} alt="myicon" width={150} height={150} />
-        </div>
+        <Photo>
+          <Image
+            src={myphotoIcon}
+            alt="Photo of Elavarasan Murugesan"
+            width={180}
+            height={180}
+            sizes="(max-width: 640px) 120px, 180px"
+            priority
+          />
+        </Photo>
       </HomeContainer>
     </Section>
   );

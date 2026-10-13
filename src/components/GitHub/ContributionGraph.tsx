@@ -5,7 +5,6 @@ import {
   GraphFooter,
   GraphHeader,
   GraphLegend,
-  GraphMessage,
   GraphScroll,
   GraphSkeleton,
   GraphTotal,
@@ -24,22 +23,27 @@ const LEFT = 28;
 const TOP = 18;
 
 const LEVEL_COLORS = [
-  "rgba(255, 255, 255, 0.06)",
-  "rgba(19, 173, 199, 0.35)",
-  "rgba(19, 173, 199, 0.65)",
-  "#13ADC7",
-  "#945DD6",
+  "rgba(255, 255, 255, 0.07)",
+  "rgba(138, 184, 240, 0.3)",
+  "rgba(138, 184, 240, 0.55)",
+  "rgba(138, 184, 240, 0.8)",
+  "#8AB8F0",
 ];
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 const parseDate = (date: string) => new Date(`${date}T00:00:00Z`);
 
-export const ContributionGraph = ({ user }: { user: string }) => {
+export const ContributionGraph = ({ user, onError }: { user: string; onError?: () => void }) => {
   const [days, setDays] = useState<ContributionDay[]>([]);
   const [total, setTotal] = useState<number | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const scrollRef = useRef<HTMLDivElement>(null);
+  // Held in a ref so a new callback from the parent doesn't trigger a refetch.
+  const onErrorRef = useRef(onError);
+  useEffect(() => {
+    onErrorRef.current = onError;
+  }, [onError]);
 
   useEffect(() => {
     fetch(`https://github-contributions-api.jogruber.de/v4/${user}?y=last`)
@@ -53,7 +57,10 @@ export const ContributionGraph = ({ user }: { user: string }) => {
         setTotal(data.total?.lastYear ?? null);
         setStatus("ready");
       })
-      .catch(() => setStatus("error"));
+      .catch(() => {
+        setStatus("error");
+        onErrorRef.current?.();
+      });
   }, [user]);
 
   // Group days into Sunday-first week columns, padding the first week.
@@ -94,16 +101,8 @@ export const ContributionGraph = ({ user }: { user: string }) => {
 
   if (status === "loading") return <GraphSkeleton />;
 
-  if (status === "error") {
-    return (
-      <GraphMessage>
-        Contribution data is unavailable right now.{" "}
-        <a href={`https://github.com/${user}`} target="_blank" rel="noopener noreferrer">
-          View it on GitHub
-        </a>
-      </GraphMessage>
-    );
-  }
+  // The parent hides the whole graph block on error; render nothing meanwhile.
+  if (status === "error") return null;
 
   const width = LEFT + weeks.length * STEP;
   const height = TOP + 7 * STEP;

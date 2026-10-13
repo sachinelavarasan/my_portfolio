@@ -1,14 +1,13 @@
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 import {
+  OutlineButton,
+  PrimaryButton,
   Section,
   SectionDivider,
   SectionTitle,
 } from "../../styles/GlobalComponents";
 import {
   ContactButtons,
-  ContactButtonPrimary,
-  ContactButtonSecondary,
-  ContactDividerLine,
   ContactTagline,
   ContactWrapper,
 } from "./elements";
@@ -21,42 +20,40 @@ export const Contact = () => {
 
       <ContactWrapper>
         <ContactTagline>
-          I&apos;m open to Full Stack Developer roles and freelance
-          opportunities. Feel free to reach out through any of the platforms
-          below.
+          Happy to connect with fellow developers and talk about backend
+          architecture, NestJS, and building SaaS products. Feel free to reach
+          out through any of the platforms below.
         </ContactTagline>
-
-        <ContactDividerLine />
 
         <ContactButtons>
 
-          <ContactButtonPrimary
+          <PrimaryButton
             id="contact-email"
             href="mailto:sachinelavarasan321@gmail.com"
           >
-            <AiOutlineMail size="1.25rem" />
+            <AiOutlineMail size="1.25rem" aria-hidden="true" />
             Email Me
-          </ContactButtonPrimary>
+          </PrimaryButton>
 
-          <ContactButtonSecondary
+          <OutlineButton
             id="contact-linkedin"
             href="https://www.linkedin.com/in/elavarasan-murugesan"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiFillLinkedin size="1.25rem" />
+            <AiFillLinkedin size="1.25rem" aria-hidden="true" />
             LinkedIn
-          </ContactButtonSecondary>
+          </OutlineButton>
 
-          <ContactButtonSecondary
+          <OutlineButton
             id="contact-github"
             href="https://github.com/sachinelavarasan"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiFillGithub size="1.25rem" />
+            <AiFillGithub size="1.25rem" aria-hidden="true" />
             GitHub
-          </ContactButtonSecondary>
+          </OutlineButton>
         </ContactButtons>
       </ContactWrapper>
     </Section>

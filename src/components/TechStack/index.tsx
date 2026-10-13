@@ -1,36 +1,29 @@
-import { Img, TechStackContainer } from "./elements";
+import { CategoryTitle, Group, SkillGrid, TechStackContainer } from "./elements";
 
 import {
   Section,
   SectionDivider,
   SectionTitle,
 } from "../../styles/GlobalComponents";
-import { skills } from "../../constants/constants";
+import { skillGroups } from "../../constants/constants";
 import { SkillCard } from "./components/SkillCard";
 
 export const TechStack = () => {
   return (
     <Section id="tech">
+      <SectionDivider />
+      <SectionTitle $main>Tech Stack</SectionTitle>
       <TechStackContainer>
-        <SectionDivider />
-        <SectionTitle $main>Tech Stack</SectionTitle>
-        <div className="entire-div">
-          <p className="subhead">
-            {" "}
-            Technologies I've been working with recently
-          </p>
-          <div className="skills">
-            <div className="grid-container mt-5">
-              {skills.map((item) => (
-                <SkillCard
-                  url={item.image}
-                  key={item.id}
-                  description={item?.description || "description"}
-                />
+        {skillGroups.map((group) => (
+          <Group key={group.category}>
+            <CategoryTitle>{group.category}</CategoryTitle>
+            <SkillGrid>
+              {group.skills.map((skill) => (
+                <SkillCard key={skill.name} name={skill.name} url={skill.image} invert={skill.invert} />
               ))}
-            </div>
-          </div>
-        </div>
+            </SkillGrid>
+          </Group>
+        ))}
       </TechStackContainer>
     </Section>
   );

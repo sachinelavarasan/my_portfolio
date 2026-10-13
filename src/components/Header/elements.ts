@@ -1,9 +1,9 @@
 'use client';
 
-import { IoIosArrowDropdown } from "react-icons/io";
 import styled from "styled-components";
-import Link from "next/link";
-import { Theme } from "../../types";
+
+// The full nav only fits on wider screens; below this it collapses into the menu button.
+const NAV_COLLAPSE = "(max-width: 900px)";
 
 export const Container = styled.nav`
   display: flex;
@@ -13,155 +13,89 @@ export const Container = styled.nav`
   position: sticky;
   top: 0;
   z-index: 100;
+  background: ${({ theme }) => theme.colors.background1}e6;
   backdrop-filter: blur(10px);
-`;
-export const Div1 = styled.div<{ theme: Theme }>`
-  grid-area: 1 / 1 / 2 / 2;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 1 / 2 / 3;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+
+  @media ${({ theme }) => theme.breakpoints.sm} {
+    padding: 14px 16px;
   }
 `;
-// export const Div2 = styled.ul<{ theme: Theme }>`
-//   display: flex;
-//   align-items: center;
-//   gap: 32px;
-//   justify-content: flex-end;
 
-//   @media ${(props) => props.theme.breakpoints.sm} {
-//     grid-area: 2 / 1 / 3 / 5;
-//     justify-content: center;
-//     gap: 20px;
-//   }
-// `;
-export const Div3 = styled.div<{ theme: Theme }>`
-  grid-area: 1 / 5 / 2 / 6;
+export const Logo = styled.a`
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    align-items: center;
-    grid-area: 1 / 4 / 2 / 6;
-  }
-`;
-
-
-export const NavLink = styled(Link)`
-  font-size: 16px;
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  transition: 0.3s;
+  gap: 8px;
+  color: ${({ theme }) => theme.colors.primary1};
+  font-weight: 600;
+  font-size: 18px;
 
   &:hover {
-    color: white;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 18px;
+    color: ${({ theme }) => theme.colors.accent1};
   }
 `;
 
-export const ContactDropDown = styled.button<{ theme: Theme }>`
-  border: none;
-  display: flex;
-  position: relative;
-  background: none;
-  font-size: 1.7rem;
-
-  line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
-  cursor: pointer;
-  transition: 0.3s ease;
-
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    color: #fff;
-  }
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    padding: 0.4rem 0;
-  }
-  @media ${(props) => props.theme.breakpoints.md} {
-    padding: 0;
-  }
-`;
-
-interface NavProductsIconProps {
-  isOpen?: boolean;
-  theme: Theme;
-}
-
-export const NavProductsIcon = styled(IoIosArrowDropdown)<NavProductsIconProps>`
-  margin-left: 8px;
-  display: flex;
-  align-self: center;
-  transition: 0.3s ease;
-  opacity: ${({ isOpen }) => (isOpen ? "1" : ".75")};
-  transform: ${({ isOpen }) => (isOpen ? "scaleY(-1)" : "scaleY(1)")};
+export const NavLink = styled.a`
+  font-size: 15px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.text};
+  transition: color 0.2s ease;
 
   &:hover {
-    opacity: 1;
+    color: ${({ theme }) => theme.colors.accent1};
   }
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    margin: 2px 0 0 2px;
-    width: 15px;
-  }
-`;
-
-
-export const SocialIcons = styled.a`
-  transition: 0.3s ease;
-  color: white;
-  border-radius: 50px;
-  padding: 8px;
-  &:hover {
-    background-color: #212d45;
-    transform: scale(1.2);
-    cursor: pointer;
+  @media ${NAV_COLLAPSE} {
+    display: block;
+    padding: 14px 0;
+    font-size: 17px;
   }
 `;
 
-export const Div2 = styled.ul<{ $open?: boolean }>`
+export const NavList = styled.ul<{ $open?: boolean }>`
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 28px;
+  gap: 24px;
   margin-bottom: 0;
 
-  @media (max-width: 768px) {
+  @media ${NAV_COLLAPSE} {
     position: absolute;
-    top: 65px;
-    right: 0;
+    top: 100%;
+    left: 0;
     width: 100%;
     flex-direction: column;
+    gap: 0;
 
     background: ${({ theme }) => theme.colors.background1};
-    border-top: 1px solid ${({ theme }) => theme.colors.cardBorder};
-    backdrop-filter: blur(10px);
-    
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
-    max-height: ${({ $open }) => ($open ? "400px" : "0")};
+    max-height: ${({ $open }) => ($open ? "480px" : "0")};
+    visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
     overflow: hidden;
+    transition: max-height 0.25s ease, visibility 0.25s;
 
-    transition: 0.3s ease;
-    gap: 0px;
-    li{
-      padding: 15px 0;
+    li {
+      width: 100%;
+      text-align: center;
     }
   }
 `;
-export const MobileIcon = styled.div`
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
 
-  @media (max-width: 768px) {
-    display: block;
+export const MenuButton = styled.button`
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  color: ${({ theme }) => theme.colors.primary1};
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  @media ${NAV_COLLAPSE} {
+    display: flex;
   }
 `;

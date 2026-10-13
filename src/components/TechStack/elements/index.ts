@@ -2,129 +2,73 @@
 
 import styled from "styled-components";
 import { Theme } from "../../../types";
+import { cardStyle } from "../../../styles/GlobalComponents";
 
 export const TechStackContainer = styled.div<{ theme: Theme }>`
-  .entire-div {
-    display: flex;
-    flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 40px;
 
-    .heading {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      text-align: center;
-    }
-    .subhead {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 2rem;
-      margin-top: 0.5rem;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      margin-bottom: unset;
-    }
-    .skills {
-      height: 500px;
-      overflow-y: auto;
-      margin: 1rem;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      @media (max-width: 768px) {
-         margin: 0rem;
-      }
-    }
-    .grid-container {
-      width: 100%;
-      display: grid;
-      grid-template-columns: auto auto auto;
-
-      align-items: center;
-      justify-items: center;
-      grid-row-gap: 6rem;
-      padding: 30px 0;
-      @media (max-width: 768px) {
-        width: 100%;
-        grid-template-columns: auto;
-        padding: 20px 10px;
-      }
-    }
+  @media ${(props) => props.theme.breakpoints.md} {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 `;
 
-export const Img = styled.img`
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  overflow: hidden;
-  filter: drop-shadow(3px -1px 0px #000);
-`;
-
-export const SkillCardContainer = styled.div<{ theme: Theme }>`
-  border-radius: 8px;
-  box-shadow: 0px 0px 3px 7px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  background: ${({ theme }) => theme.colors.cardBg};
-  border: 1px solid #5274b7;
-  width: 250px;
-  height: 200px;
+export const Group = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(6px);
-  transition: transform 500ms 100ms, border-color 0.3s ease, box-shadow 0.3s ease;
+`;
 
-  .block {
-    display: none;
-  }
-  .description {
-    font-weight: 500;
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
-  }
-  &:hover {
-    border-color: #5274b780;
-    box-shadow: 0 12px 40px #5274b726;
-    transform: scale(1.05);
-    .block {
-      display: block;
-      animation: fadeIn 1s;
-      -webkit-animation: fadeIn 1s;
-    }
-    .image {
-      width: 60px;
-      height: 60px;
-    }
-  }
+export const CategoryTitle = styled.h3<{ theme: Theme }>`
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: ${(props) => props.theme.colors.accent1};
+`;
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 100%;
-  }
+export const SkillGrid = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
 
-  .heading {
-    font-weight: 800;
-    font-size: 1.9rem;
-    color: ${(props) => props.theme.colors.accent1};
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
-export const SkillImg = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  overflow: hidden;
+export const SkillCardContainer = styled.li<{ theme: Theme }>`
+  ${cardStyle};
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  min-width: 0;
+
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  img.invert {
+    filter: invert(1) brightness(0.92);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+`;
+
+export const SkillName = styled.span<{ theme: Theme }>`
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: ${(props) => props.theme.colors.primary1};
 `;

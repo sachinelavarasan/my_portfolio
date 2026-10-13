@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { projects } from "../../constants/constants";
+import { FeaturedProject } from "./components/FeaturedProject";
 import { ProjectCard } from "./components/ProjectCard";
 import { GridContainer } from "./element";
 import {
@@ -8,45 +8,20 @@ import {
   SectionTitle,
 } from "../../styles/GlobalComponents";
 
+const featured = projects.find((p) => p.featured);
+const others = projects.filter((p) => p !== featured);
+
 export const Projects = () => {
-  const projectsMemoized = useMemo(() => {
-
-  const isOdd = projects.length % 2 !== 0;
-  if (!isOdd) return projects;
-
-    return [
-      ...projects,
-      {
-        title: "Upcoming",
-        type: "",
-        id: `upcoming-${projects.length}`,
-        description: "",
-        image: "",
-        tags: [],
-        source: "",
-        live: "",
-        demo: ""
-      },
-    ];
-}, [projects]);
-
   return (
     <Section id="projects">
       <SectionDivider />
       <SectionTitle $main>Projects</SectionTitle>
+
+      {featured && <FeaturedProject project={featured} />}
+
       <GridContainer>
-        {projectsMemoized.map((item) => (
-          <ProjectCard
-            key={item.id}
-            title={item.title}
-            url={item.image}
-            description={item.description}
-            tech={item.tags}
-            source={item.source}
-            type={item.type}
-            live={item.live}
-            demo={item.demo}
-          />
+        {others.map((project) => (
+          <ProjectCard key={project.id} project={project} />
         ))}
       </GridContainer>
     </Section>

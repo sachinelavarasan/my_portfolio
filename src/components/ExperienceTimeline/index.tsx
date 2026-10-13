@@ -1,14 +1,17 @@
 import { FaBriefcase } from "react-icons/fa";
 
-import { Section, Timeline, TimelineItem, Card, Role, Company, List, Location, Content, Center, Icon } from './elements';
+import { Timeline, TimelineItem, Card, Role, Company, List, Location, Content, Center, Icon } from './elements';
 import { experiences } from '../../constants/constants';
+import { Section, SectionDivider, SectionTitle } from "../../styles/GlobalComponents";
 
 
-export default function ExperienceTimeline(){
+export const Experience = () => {
   return (
     <Section id="experience">
+      <SectionDivider />
+      <SectionTitle $main>Experience</SectionTitle>
 
-     <Timeline>
+      <Timeline>
         {experiences.map((exp, index) => (
           <TimelineItem key={index} $isLeft={index % 2 === 0}>
             <Content $isLeft={index % 2 === 0}>
@@ -29,7 +32,7 @@ export default function ExperienceTimeline(){
 
             <Center>
               <Icon $isLatest={index === 0}>
-                <FaBriefcase />
+                <FaBriefcase aria-hidden="true" />
               </Icon>
             </Center>
           </TimelineItem>
@@ -38,3 +41,5 @@ export default function ExperienceTimeline(){
     </Section>
   );
 };
+
+export default Experience;

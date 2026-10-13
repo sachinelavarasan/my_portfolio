@@ -2,65 +2,46 @@ import React from "react";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { SiDevdotto } from "react-icons/si";
 
-import { SocialIcons } from "../Header/elements";
 import {
-  CompanyContainer,
+  Copyright,
+  FooterRow,
   FooterWrapper,
   Slogan,
   SocialContainer,
-  SocialIconsContainer,
+  SocialIcon,
 } from "./FooterStyles";
+
+const SOCIALS = [
+  { href: "https://github.com/sachinelavarasan", label: "GitHub", Icon: AiFillGithub },
+  { href: "https://www.linkedin.com/in/elavarasan-murugesan", label: "LinkedIn", Icon: AiFillLinkedin },
+  { href: "https://dev.to/sachinelavarasan", label: "dev.to", Icon: SiDevdotto },
+];
 
 export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
     <FooterWrapper>
+      <FooterRow>
+        <Slogan>Building secure, scalable APIs and SaaS platforms</Slogan>
 
-      <CompanyContainer>
-        <Slogan>Design Your Future</Slogan>
-        <p style={{ marginTop: "8px", opacity: 0.7 }}>
-          Full Stack Developer specializing in modern web applications
-        </p>
-      </CompanyContainer>
-
-      <SocialIconsContainer>
         <SocialContainer>
-
-          <SocialIcons
-            href="https://github.com/sachinelavarasan"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <AiFillGithub size="2.5rem" />
-          </SocialIcons>
-
-          <SocialIcons
-            href="https://www.linkedin.com/in/elavarasan-murugesan"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <AiFillLinkedin size="2.5rem" />
-          </SocialIcons>
-
-          <SocialIcons
-            href="https://dev.to/sachinelavarasan"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Dev.to"
-          >
-            <SiDevdotto size="2.5rem" />
-          </SocialIcons>
-
+          {SOCIALS.map(({ href, label, Icon }) => (
+            <SocialIcon
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${label} (opens in a new tab)`}
+              title={label}
+            >
+              <Icon size="2.2rem" aria-hidden="true" />
+            </SocialIcon>
+          ))}
         </SocialContainer>
-      </SocialIconsContainer>
+      </FooterRow>
 
-      <div style={{ marginTop: "24px", opacity: 0.6, fontSize: "14px" }}>
-        © {year} Elavarasan M. All rights reserved.
-      </div>
-
+      <Copyright>© {year} Elavarasan Murugesan. All rights reserved.</Copyright>
     </FooterWrapper>
   );
 };

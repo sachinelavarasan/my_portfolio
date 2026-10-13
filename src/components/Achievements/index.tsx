@@ -4,6 +4,7 @@ import {
   SectionTitle,
 } from "../../styles/GlobalComponents";
 import { achievements, stats } from "../../constants/constants";
+import { Certifications } from "../Certifications";
 import {
   AchievementCard,
   AchievementContent,
@@ -34,8 +35,8 @@ export const Achievements = () => {
 
       <AchievementsGrid>
         {achievements.map((item) => (
-          <AchievementCard key={item.id} $delay={item.id}>
-            <AchievementIcon>{item.icon}</AchievementIcon>
+          <AchievementCard key={item.id}>
+            <AchievementIcon aria-hidden="true">{item.icon}</AchievementIcon>
             <AchievementContent>
               <AchievementTitle>{item.title}</AchievementTitle>
               {item.meta && <AchievementMeta>{item.meta}</AchievementMeta>}
@@ -44,6 +45,8 @@ export const Achievements = () => {
           </AchievementCard>
         ))}
       </AchievementsGrid>
+
+      <Certifications />
     </Section>
   );
 };

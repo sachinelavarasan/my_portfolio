@@ -8,3 +8,4 @@ export * from "./Certifications";
 export * from "./Contact";
 export * from "./Header";
 export * from "./Footer";
+export * from "./ExperienceTimeline";

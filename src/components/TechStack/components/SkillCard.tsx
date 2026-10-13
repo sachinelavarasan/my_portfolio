@@ -1,20 +1,25 @@
 import React from "react";
 
-import { SkillImg, SkillCardContainer } from "../elements";
+import { SkillCardContainer, SkillName } from "../elements";
+import { SafeImage } from "../../SafeImage";
 
 interface SkillCardProps {
-  className?: string;
   url: string;
-  description: string;
+  name: string;
+  invert?: boolean;
 }
 
-export const SkillCard = ({ className, url, description }: SkillCardProps) => {
+export const SkillCard = ({ url, name, invert }: SkillCardProps) => {
   return (
-    <SkillCardContainer className={className}>
-      <SkillImg src={url} alt="myicon" className="image" />
-      <div className="block mt-2">
-        <p className="description">{description}</p>
-      </div>
+    <SkillCardContainer>
+      <SafeImage
+        src={url}
+        alt={`${name} logo`}
+        width={28}
+        height={28}
+        className={invert ? "invert" : undefined}
+      />
+      <SkillName>{name}</SkillName>
     </SkillCardContainer>
   );
 };

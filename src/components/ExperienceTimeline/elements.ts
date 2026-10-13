@@ -1,100 +1,59 @@
 'use client';
 
-import styled, { css, keyframes } from "styled-components";
-
-export const Section = styled.section`
-  padding: 80px 20px;
-  background: ${({ theme }) => theme.colors.background1};
-  @media (max-width: 768px) {
-    padding: 20px 10px;
-  }
-`;
-
-export const Title = styled.h2`
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.primary1};
-`;
+import styled from "styled-components";
+import { cardStyle } from "../../styles/GlobalComponents";
 
 export const Timeline = styled.div`
   position: relative;
-  max-width: 1000px;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
 
   &::after {
     content: "";
     position: absolute;
-    width: 4px;
-    background: ${({ theme }) => theme.colors.button};
+    width: 2px;
+    background: ${({ theme }) => theme.colors.accent1}40;
     top: 0;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }
+
   @media (max-width: 768px) {
-    padding-left: 20px;
+    padding-left: 52px;
 
     &::after {
-      left: -10px;
+      left: 17px;
       transform: none;
     }
   }
 `;
 
 export const TimelineItem = styled.div<{ $isLeft: boolean }>`
-display: flex;
+  display: flex;
   justify-content: ${({ $isLeft }) =>
     $isLeft ? "flex-start" : "flex-end"};
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   @media (max-width: 768px) {
     justify-content: flex-start;
+    margin-bottom: 20px;
   }
-
-`;
-
-export const IconWrapper = styled.div`
-  position: absolute;
-  left: -2px;
-  top: 0;
-  width: 36px;
-  height: 36px;
-  background: ${({ theme }) => theme.colors.button};
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 14px;
-
-  box-shadow: 0 0 0 4px rgba(0, 118, 255, 0.15);
 `;
 
 export const Card = styled.div`
-  background: ${({ theme }) => theme.colors.cardBg};
-  border: 1px solid #5274b7;
-  padding: 20px 24px;
-  border-radius: 12px;
-  transition: transform 500ms 100ms;
+  ${cardStyle};
+  padding: 22px 24px;
 
-  transition: all 0.25s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0px 4px 6px rgba(0, 0, 0, 0.4);
-  }
-
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     width: 100%;
-    padding: 10px 20px;
+    padding: 18px;
   }
-`;
-
-export const Header = styled.div`
-  margin-bottom: 12px;
 `;
 
 export const Role = styled.h3`
@@ -102,31 +61,37 @@ export const Role = styled.h3`
   font-weight: 600;
   color: ${({ theme }) => theme.colors.primary1};
   margin-bottom: 4px;
+
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
 `;
 
 export const Company = styled.div`
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   color: ${({ theme }) => theme.colors.accent1};
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 `;
 
 export const Location = styled.div`
-  font-size: 13px;
-  color: ${({ theme }) => theme.colors.text};
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.textSubtle};
 `;
 
 export const List = styled.ul`
-  margin-top: 10px;
+  margin: 14px 0 0;
   padding-left: 18px;
 
   li {
+    list-style: disc;
     margin-bottom: 6px;
-    font-size: 14px;
-    color: ${({ theme }) => theme.colors.primary1};
-    opacity: 0.85;
+    font-size: 15px;
+    line-height: 1.55;
+    color: ${({ theme }) => theme.colors.text};
   }
-  @media (max-width: 768px) {
-    padding-left: 10px;
+  li::marker {
+    color: ${({ theme }) => theme.colors.accent1};
   }
 `;
 
@@ -138,27 +103,18 @@ export const Content = styled.div<{ $isLeft: boolean }>`
     content: "";
     position: absolute;
     top: 20px;
-    width: 40px;
+    /* the card is 45% wide, so the gap to the centre line is 5/45 of its width */
+    width: calc(100% * 5 / 45);
     height: 2px;
-    background: ${({ theme }) => theme.colors.button};
-
-    ${({ $isLeft }) =>
-      $isLeft
-        ? `
-        right: -40px;
-      `
-        : `
-        left: -40px;
-      `}
+    background: ${({ theme }) => theme.colors.accent1}40;
+    ${({ $isLeft }) => ($isLeft ? "left: 100%;" : "right: 100%;")}
   }
-  
-   @media (max-width: 768px) {
+
+  @media (max-width: 768px) {
     width: 100%;
 
     &::after {
-      left: -30px;
-      right: auto;
-      top: 10px;
+      display: none;
     }
   }
 `;
@@ -166,43 +122,33 @@ export const Content = styled.div<{ $isLeft: boolean }>`
 export const Center = styled.div`
   position: absolute;
   left: 50%;
+  top: 0;
   transform: translateX(-50%);
   z-index: 2;
 
   @media (max-width: 768px) {
-    left: -20px;
+    left: -52px;
     transform: none;
-    top: -10px;
-  }
-
-`;
-
-const blink = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 118, 255, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(0, 118, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 118, 255, 0);
   }
 `;
 
 export const Icon = styled.div<{ $isLatest?: boolean }>`
   width: 40px;
   height: 40px;
-  background: ${({ theme }) => theme.colors.button};
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 16px;
-  box-shadow: 0 0 0 6px rgba(0, 118, 255, 0.15);
-  ${({ $isLatest }) =>
-    $isLatest &&
-    css`
-      animation: ${blink} 1.8s infinite;
-    `}
+  font-size: 15px;
+  background: ${({ theme, $isLatest }) =>
+    $isLatest ? theme.colors.accent1 : theme.colors.cardBg};
+  color: ${({ theme, $isLatest }) =>
+    $isLatest ? theme.colors.onAccent : theme.colors.accent1};
+  border: 2px solid ${({ theme }) => theme.colors.accent1};
+
+  @media (max-width: 768px) {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
 `;

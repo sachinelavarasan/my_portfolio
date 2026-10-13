@@ -1,4 +1,4 @@
-import { Home, About, TechStack, Projects, Achievements, Certifications, GitHub, Contact } from "../components";
+import { Home, About, Experience, Projects, GitHub, TechStack, Achievements, Contact } from "../components";
 
 import { Layout } from "../components/Layout";
 import Theme from "../styles/theme";
@@ -9,11 +9,11 @@ export default function Portfolio() {
             <Layout>
                 <Home />
                 <About />
-                <TechStack />
-                <Achievements />
-                <Certifications />
+                <Experience />
                 <Projects />
                 <GitHub />
+                <TechStack />
+                <Achievements />
                 <Contact />
             </Layout>
         </Theme>

@@ -1,52 +1,44 @@
 import { TbCertificate } from "react-icons/tb";
-import {
-  Section,
-  SectionDivider,
-  SectionTitle,
-} from "../../styles/GlobalComponents";
 import { certifications } from "../../constants/constants";
 import {
-  CardHeader,
   CertificationCard,
+  CertificationsBlock,
   CertificationsGrid,
+  CertificationsHeading,
   ContentArea,
-  Description,
   IconWrapper,
   IssuerRow,
   Title,
 } from "./elements";
 
+// Rendered at the end of the Achievements section as a compact list.
 export const Certifications = () => {
   return (
-    <Section id="certifications">
-      <SectionDivider />
-      <SectionTitle $main>Certifications</SectionTitle>
+    <CertificationsBlock id="certifications" aria-labelledby="certifications-heading">
+      <CertificationsHeading id="certifications-heading">Certifications</CertificationsHeading>
 
       <CertificationsGrid>
-        {certifications.map((cert, index) => (
-          <CertificationCard key={cert.id}
+        {certifications.map((cert) => (
+          <CertificationCard
+            key={cert.id}
             href={cert.link}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "inherit" }}>
-            <CardHeader>
-              <IconWrapper>
-                <TbCertificate size="1.45rem" />
-              </IconWrapper>
-            </CardHeader>
+            title={cert.description}
+          >
+            <IconWrapper aria-hidden="true">
+              <TbCertificate size={20} />
+            </IconWrapper>
             <ContentArea>
               <Title>{cert.title}</Title>
               <IssuerRow>
-                <span>{cert.issuer}</span>
+                {cert.issuer}
                 {cert.date && ` · ${cert.date}`}
               </IssuerRow>
-              {cert.description && (
-                <Description>{cert.description}</Description>
-              )}
             </ContentArea>
           </CertificationCard>
         ))}
       </CertificationsGrid>
-    </Section>
+    </CertificationsBlock>
   );
 };

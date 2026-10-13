@@ -5,11 +5,11 @@ export default function manifest(): MetadataRoute.Manifest {
         name: "Elavarasan Dev Portfolio",
         short_name: "Elavarasan Dev",
         description:
-            "Portfolio of Elavarasan, Full Stack Developer specializing in Angular, Nest.js, React, Node Js, Docker, and AWS.",
+            "Portfolio of Elavarasan, Senior Full Stack Developer specializing in Angular, Nest.js, React, Node Js, Docker, and AWS.",
         start_url: "/",
         display: "standalone",
-        background_color: "#0f0f14",
-        theme_color: "#0f0f14",
+        background_color: "#0F1C2E",
+        theme_color: "#0F1C2E",
         icons: [
             {
                 src: "/icon-192x192.png",

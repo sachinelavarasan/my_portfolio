@@ -1,91 +1,32 @@
-import { Achievement, Experience, Project, Skill, Stat, Certification } from "../types";
+import { Achievement, Experience, Project, SkillGroup, Stat, Certification } from "../types";
 
 export const projects: Project[] = [
   {
-    title: "Food Order Taker",
+    title: "Expensify – Full Stack Expense Tracker",
     description:
-      "Using PHP, JavaScript, Boostrap, Mysql you'll learn how to build this application - from start to finish. The App is called Order Taker and it is a simple Javascript app that allows users like to order food without manual effort",
-    image: "/projectImage/Hotel-php.png",
+      "A full stack expense tracking product, live on Google Play. Mobile app built with Expo, React Native, and TypeScript, with budgets, recurring transactions, stats dashboard, Excel import/export, and push notifications. Backend API built with NestJS, PostgreSQL, and Drizzle ORM, featuring JWT auth with OTP verification, cron jobs, rate limiting, and Swagger docs, deployed on Vercel.",
+    image: "/projectImage/expensify-app.png",
     tags: [
-      "PHP",
-      "JavaScript",
-      "Mysql",
-      "Bootstrap",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/FoodOrderSystem-PHP",
-    id: 0,
-    type: "project",
-  },
-  {
-    title: "Table Booking Using MERN App",
-    description:
-      "Using React, Node.js, Express & Mysql  used to create this Full Stack MERN Application. This app is simple table reservation app that allows users to reserve table for events and post comments about food and suggestions",
-    image: "/projectImage/table-booking.png",
-    tags: [
-      "React",
-      "Redux toolkit",
-      "Express",
-      "Mysql",
-      "Node",
-      "Bookshelf js",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/RestaurantTableBooking-REACT-NODE",
-
-    id: 1,
-    type: "project",
-  },
-  {
-    title: "Food Order App",
-    description:
-      "Food app built by React Native,Sanity Cms as backend.It Used to food order with expo Geolocation",
-    image:
-      "/projectImage/food-order-app.png",
-    tags: [
+      "Expo",
       "React Native",
-      "Sanity Io",
-      "Tailwind css",
-      "Redux",
+      "TypeScript",
+      "React Query",
+      "NestJS",
+      "PostgreSQL",
+      "Drizzle ORM",
     ],
     source:
-      "https://github.com/sachinelavarasan/ReactNative-SanityIo",
-    id: 2,
+      "https://github.com/sachinelavarasan/expensify",
+    apiSource: "https://github.com/sachinelavarasan/expensify-api",
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.sachinelavarasan.expensify",
+    badge: "Live on Google Play",
+    featured: true,
+    summary:
+      "A full stack expense tracker live on Google Play: an Expo + React Native app backed by a NestJS, PostgreSQL and Drizzle API.",
+    id: 7,
     type: "project",
-  },
-  {
-    title: "Learn Tech",
-    description:
-      "Individuals can become teachers and learn from others by sharing their knowledge with less investment",
-    image: "/projectImage/course-platform.png",
-    tags: [
-      "Next Js",
-      "Tailwind css",
-      "Cleak auth",
-      "Prisma",
-      "Mysql",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/course-platform",
-    id: 3,
-    type: "project",
-    live: "https://course-platform-xi-red.vercel.app",
-  },
-  {
-    title: "Shopping Cart",
-    description:
-      "This flutter application uses Google and email addresses for Firebase authentication. It can serve as a basic authentication template.",
-    image: "/projectImage/shopping-cart.png",
-    tags: [
-      "Flutter",
-      "Getx",
-      "Get Storage",
-      "Firebase",
-    ],
-    source:
-      "https://github.com/sachinelavarasan/flutter_firebaseauth",
-    id: 5,
-    type: "project",
+    demo: "https://drive.google.com/file/d/1Tj7eqEl7zg9TbyZuOpYgxO-ytLxkjF_y/view?usp=sharing"
   },
   {
     title: "LendsLog",
@@ -107,186 +48,119 @@ export const projects: Project[] = [
     demo: "https://drive.google.com/file/d/1LSHHHV57Cze7nOQE6MQDZS6_RmB-5UFc/view?usp=sharing"
   },
   {
-    title: "Expensify",
+    title: "Shopping Cart",
     description:
-      "A modern cross-platform expense tracking app built with Expo and React Native. Features secure authentication with Clerk, expense analytics with charts, and Excel export support. Runs on Android, iOS, and Web.",
-    image: "/projectImage/expensify-app.png",
+      "This flutter application uses Google and email addresses for Firebase authentication. It can serve as a basic authentication template.",
+    image: "/projectImage/shopping-cart.png",
     tags: [
-      "Expo",
-      "React Native",
-      "TypeScript",
-      "Expo Router",
-      "React Query",
-      "Clerk",
-      "XLSX",
-      "Play Store"
+      "Flutter",
+      "Getx",
+      "Get Storage",
+      "Firebase",
     ],
     source:
-      "https://github.com/sachinelavarasan/expensify",
-    id: 7,
+      "https://github.com/sachinelavarasan/flutter_firebaseauth",
+    id: 5,
     type: "project",
-    demo: "https://drive.google.com/file/d/1Tj7eqEl7zg9TbyZuOpYgxO-ytLxkjF_y/view?usp=sharing"
+  },
+  {
+    title: "Learn Tech",
+    description:
+      "Individuals can become teachers and learn from others by sharing their knowledge with less investment",
+    image: "/projectImage/course-platform.png",
+    tags: [
+      "Next Js",
+      "Tailwind css",
+      "Prisma",
+      "Mysql",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/course-platform",
+    id: 3,
+    type: "project",
+    live: "https://course-platform-xi-red.vercel.app",
+  },
+  {
+    title: "Food Order App",
+    description:
+      "Food app built by React Native,Sanity Cms as backend.It Used to food order with expo Geolocation",
+    image:
+      "/projectImage/food-order-app.png",
+    tags: [
+      "React Native",
+      "Sanity Io",
+      "Tailwind css",
+      "Redux",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/ReactNative-SanityIo",
+    id: 2,
+    type: "project",
+  },
+  {
+    title: "Table Booking Using MERN App",
+    description:
+      "Using React, Node.js, Express & Mysql  used to create this Full Stack MERN Application. This app is simple table reservation app that allows users to reserve table for events and post comments about food and suggestions",
+    image: "/projectImage/table-booking.png",
+    tags: [
+      "React",
+      "Redux toolkit",
+      "Express",
+      "Mysql",
+      "Node",
+      "Bookshelf js",
+    ],
+    source:
+      "https://github.com/sachinelavarasan/RestaurantTableBooking-REACT-NODE",
+
+    id: 1,
+    type: "project",
   },
 ];
 
-export const skills: Skill[] = [
+export const skillGroups: SkillGroup[] = [
   {
-    image: "/skills/angular-icon.svg",
-    id: 0,
-    description:
-      "Angular is a platform and framework for building single-page client applications using HTML and TypeScript.",
+    category: "Backend",
+    skills: [
+      { name: "Node.js", image: "/skills/node-icon.svg" },
+      { name: "NestJS", image: "/skills/nestjs-icon.svg" },
+      { name: "Express", image: "/skills/express-icon.svg", invert: true },
+      { name: "TypeScript", image: "/skills/typescript-icon.svg" },
+      { name: "Socket.IO", image: "/skills/socketio-icon.svg" },
+    ],
   },
   {
-    image: "/skills/react-js-icon.svg",
-    id: 1,
-    description:
-      "React is a JavaScript library for building fast and interactive user interfaces using reusable components.",
+    category: "Databases",
+    skills: [
+      { name: "PostgreSQL", image: "/skills/postgres-icon.svg" },
+      { name: "MySQL", image: "/skills/mysql-icon.svg" },
+      { name: "MongoDB", image: "/skills/mongodb-icon.svg" },
+      { name: "Drizzle ORM", image: "/skills/drizzle-icon.svg" },
+      { name: "Prisma", image: "/skills/prisma-icon.svg" },
+      { name: "Knex", image: "/skills/knex-icon.svg" },
+    ],
   },
   {
-    image: "/skills/typescript-icon.svg",
-    id: 2,
-    description:
-      "TypeScript is a strongly typed superset of JavaScript that improves code quality and developer productivity.",
+    category: "Frontend & Mobile",
+    skills: [
+      { name: "React", image: "/skills/react-js-icon.svg" },
+      { name: "Redux Toolkit", image: "/skills/redux-icon.svg" },
+      { name: "React Query", image: "/skills/react-query-icon.svg" },
+      { name: "Next.js", image: "/skills/nextjs-icon.svg", invert: true },
+      { name: "Angular", image: "/skills/angular-icon.svg" },
+      { name: "Tailwind CSS", image: "/skills/tailwind-icon.svg" },
+      { name: "React Native", image: "/skills/react-native-icon.svg" },
+      { name: "Expo", image: "/skills/expo-icon.svg" },
+    ],
   },
   {
-    image: "/skills/node-icon.svg",
-    id: 3,
-    description:
-      "Node.js is a JavaScript runtime used to build scalable server-side and backend applications.",
-  },
-  {
-    image: "/skills/nestjs-icon.svg",
-    id: 4,
-    description:
-      "NestJS is a scalable Node.js framework for building efficient and maintainable backend applications.",
-  },
-  {
-    image: "/skills/redux-icon.svg",
-    id: 5,
-    description:
-      "Redux Toolkit simplifies state management in React applications with predictable and centralized state.",
-  },
-  {
-    image: "/skills/express-icon.svg",
-    id: 6,
-    description:
-      "Express.js is a minimal and flexible Node.js framework for building web and API applications.",
-  },
-  {
-    image: "/skills/html-icon.svg",
-    id: 7,
-    description:
-      "HTML is the standard markup language used to create the structure of web pages.",
-  },
-  {
-    image: "/skills/css-icon.svg",
-    id: 8,
-    description:
-      "CSS is used to style and layout web pages, including colors, layouts, and responsiveness.",
-  },
-  {
-    image: "/skills/knex-icon.svg",
-    id: 9,
-    description:
-      "KnexJS is a SQL query builder for Node.js used to interact with relational databases efficiently.",
-  },
-
-  {
-    image: "/skills/mysql-icon.svg",
-    id: 10,
-    description:
-      "MySQL is a relational database used for storing and managing structured application data.",
-  },
-  {
-    image: "/skills/mongodb-icon.svg",
-    id: 11,
-    description:
-      "MongoDB is a NoSQL database used to store flexible, JSON-like documents.",
-  },
-  {
-    image: "/skills/postgres-icon.svg",
-    id: 12,
-    description:
-      "PostgreSQL is an advanced open-source relational database known for reliability and performance.",
-  },
-  {
-    image: "/skills/nextjs-icon.svg",
-    id: 13,
-    description:
-      "Next.js is a React framework for building fast web applications with SSR and static generation.",
-  },
-  {
-    image: "/skills/tailwind-icon.svg",
-    id: 14,
-    description:
-      "Tailwind CSS is a utility-first framework for rapidly building modern user interfaces.",
-  },
-  {
-    image: "/skills/github-icon.svg",
-    id: 15,
-    description:
-      "GitHub is a platform for hosting, sharing, and collaborating on software projects.",
-  },
-  {
-    image: "/skills/react-native-icon.svg",
-    id: 16,
-    description:
-      "React Native is used to build cross-platform mobile apps using JavaScript and React.",
-  },
-  {
-    image: "/skills/expo-icon.svg",
-    id: 17,
-    description:
-      "Expo simplifies React Native development with powerful tools and APIs.",
-  },
-  {
-    image: "/skills/prisma-icon.svg",
-    id: 18,
-    description:
-      "Prisma is a modern ORM that simplifies database access and improves type safety.",
-  },
-  {
-    image: "/skills/drizzle-icon.svg",
-    id: 19,
-    description:
-      "Drizzle ORM is a lightweight and type-safe ORM designed for TypeScript and SQL databases.",
-  },
-  {
-    image: "/skills/vitest-icon.svg",
-    id: 20,
-    description:
-      "Vitest is a fast unit testing framework designed for modern JavaScript and TypeScript projects.",
-  },
-  {
-    image: "/skills/react-query-icon.svg",
-    id: 21,
-    description:
-      "React Query simplifies server state management, caching, and synchronization in React apps.",
-  },
-  {
-    image: "/skills/docker-icon.svg",
-    id: 22,
-    description:
-      "Docker is a containerization platform that allows developers to package applications and their dependencies into portable containers for consistent deployment.",
-  },
-
-  {
-    image: "/skills/flutter-icon.svg",
-    id: 23,
-    description:
-      "Flutter is used to build cross-platform mobile applications using a single codebase.",
-  },
-  {
-    image: "/skills/firebase-icon.svg",
-    id: 24,
-    description:
-      "Firebase provides backend services like authentication, database, and hosting.",
-  },
-  {
-    image: "/skills/php-icon.svg",
-    id: 25,
-    description:
-      "PHP is a server-side scripting language used for web development.",
+    category: "DevOps & Tooling",
+    skills: [
+      { name: "Docker", image: "/skills/docker-icon.svg" },
+      { name: "Vitest", image: "/skills/vitest-icon.svg" },
+      { name: "Firebase", image: "/skills/firebase-icon.svg" },
+      { name: "GitHub", image: "/skills/github-icon.svg", invert: true },
+    ],
   },
 ];
 
@@ -298,18 +172,20 @@ export const experiences: Experience[] = [
     location: "Calicut, India",
     period: "Aug 2024 - Present",
     description: [
-      "Built scalable REST and GraphQL APIs using Node.js, Express, and NestJS",
-      "Migrated production backend from Express.js to NestJS",
-      "Implemented real-time communication using Socket.IO",
-      "Optimised database queries and improved API performance",
-      "Integrated external services for compliance and reporting workflows",
+      "Built scalable REST APIs with Node.js and NestJS for enterprise web and mobile platforms",
+      "Led migration of the production backend from Express.js to NestJS",
+      "Moved the codebase to a monorepo with a Docker-based setup",
+      "Migrated the test suite to Vitest",
+      "Optimised database queries and added API rate limiting, reducing API response times by 40%",
+      "Built real-time chat, QR interactions, and live status updates with Socket.IO",
+      "Integrated REF App (HRA) and PageUp to automate passport, visa, and compliance checks",
     ],
   },
   {
     title: "Software Engineer",
     company: "Bititude Technologies",
     location: "Calicut, India",
-    period: "Mar 2021 - Jul 2024",
+    period: "Mar 2021 - Aug 2024",
     description: [
       "Designed and implemented REST APIs using Node.js and Express",
       "Developed backend services for enterprise applications",
@@ -320,7 +196,7 @@ export const experiences: Experience[] = [
     title: "Junior PHP Developer",
     company: "Gnanaguru Technologies",
     location: "Coimbatore, India",
-    period: "Dec 2020 - 2021",
+    period: "Dec 2020 - Feb 2021",
     description: [
       "Developed vehicle insurance renewal application",
       "Worked with PHP, JavaScript, AJAX, and MySQL",
@@ -334,7 +210,7 @@ export const achievements: Achievement[] = [
   {
     id: 0,
     icon: "🏆",
-    title: "Years of Excellence Award",
+    title: "Year of Excellence Award",
     meta: "Bititude · 2024",
     description:
       "Recognized for consistent outstanding performance, technical excellence, and valuable contribution to the organization.",
@@ -343,7 +219,7 @@ export const achievements: Achievement[] = [
     id: 1,
     icon: "🥇",
     title: "Monthly Performer Award",
-    meta: "Bititude · Dec 2024",
+    meta: "Bititude · January 2025",
     description:
       "Awarded for exceptional performance, productivity, and successful delivery of key project milestones.",
   },
@@ -354,34 +230,6 @@ export const achievements: Achievement[] = [
     meta: "Bititude · 2024",
     description:
       "Recognized for maintaining perfect attendance and demonstrating strong professional commitment and reliability.",
-  },
-  {
-    id: 3,
-    icon: "🚀",
-    title: "6+ Production Projects Delivered",
-    description:
-      "Successfully developed and deployed enterprise applications as part of the Bititude engineering team.",
-  },
-  {
-    id: 4,
-    icon: "💡",
-    title: "7+ Personal Projects Built",
-    description:
-      "Designed and developed full-stack applications independently to strengthen expertise in modern web technologies.",
-  },
-  {
-    id: 5,
-    icon: "🛠️",
-    title: "20+ Technologies Worked With",
-    description:
-      "Including Angular, React, TypeScript, Node.js, NestJS, Flutter, PostgreSQL, Docker, and modern frontend/backend tools.",
-  },
-  {
-    id: 6,
-    icon: "⏱️",
-    title: "5+ Years of Professional Full Stack Development",
-    description:
-      "Delivered scalable frontend and backend applications using Angular, React, TypeScript, Node.js, and NestJS.",
   },
 ];
 

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { normalize } from 'styled-normalize';
+import { normalize } from './normalize';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize};
@@ -32,6 +32,36 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+  /* Keep section headings clear of the sticky header when jumping via nav links */
+  section[id] {
+    scroll-margin-top: 72px;
+  }
+
+  ::selection {
+    background: ${props => props.theme.colors.accent1};
+    color: ${props => props.theme.colors.onAccent};
+  }
+
+  /* One visible focus style for every interactive element (keyboard only) */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid ${props => props.theme.colors.accent1};
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 `;
 
 export default GlobalStyles;

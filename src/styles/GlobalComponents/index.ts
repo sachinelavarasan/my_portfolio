@@ -1,6 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Theme } from '../../types';
 
 interface SectionProps {
@@ -48,21 +48,20 @@ interface LinkIconImgProps {
 export const Section = styled.section<SectionProps>`
   display: ${(props) => props.grid ? "grid" : "flex" };
   flex-direction: ${(props) => props.row ? "row" : "column" };
-  padding: ${(props) => props.nopadding ? "0" : "32px 48px 0" } ;
+  padding: ${(props) => props.nopadding ? "0" : "48px 48px" } ;
   margin: 0 auto;
   max-width: 1040px;
   box-sizing: content-box;
   position: relative;
-  overflow: hidden;
   grid-template-columns: 1fr 1fr;
 
   @media ${(props) => props.theme.breakpoints.md} {
-    padding: 24px 48px 0;
+    padding: ${(props) => props.nopadding ? "0" : "40px 32px" } ;
     flex-direction: column;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    padding: ${(props) => props.nopadding ? "0" : "16px 16px 0" } ;
+    padding: ${(props) => props.nopadding ? "0" : "32px 16px" } ;
 
     width: calc(100vw - 32px);
     flex-direction: column;
@@ -70,32 +69,22 @@ export const Section = styled.section<SectionProps>`
 `
 
 export const SectionTitle = styled.h2<SectionTitleProps>`
-  font-weight: 800;
-  font-size: ${(props) => props.$main ? '56px' : '46px'};
-  line-height: ${(props) => props.$main ? '62px' : '46px'};
-  width: max-content;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   max-width: 100%;
-  background: linear-gradient(121.57deg, #FFFFFF 18.77%, rgba(255, 255, 255, 0.66) 60.15%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 16px;
-  padding: ${(props) => props.$main ? '58px 0 16px' : '0'};
+  color: ${(props) => props.theme.colors.primary1};
+  margin: 16px 0 32px;
 
   @media ${props => props.theme.breakpoints.md}{
-    font-size: ${(props) => props.$main ? '56px' : '48px'};
-    line-height: ${(props) => props.$main ? '56px' : '48px'};
-    margin-bottom: 12px;
-    padding: ${(props) => props.$main ? '40px 0 12px' : '0'};
+    font-size: 34px;
+    margin-bottom: 28px;
   }
 
   @media ${props => props.theme.breakpoints.sm}{
-    font-size: 32px;
-    line-height: 40px;
-    font-size: ${(props) => props.$main ? '28px' : '32px'};
-    line-height: ${(props) => props.$main ? '32px' : '40px'};
-    margin-bottom: 8px;
-    padding: ${(props) => props.$main ? '16px 0 8px' : '0'};
-    max-width: 100%;
+    font-size: 28px;
+    margin: 12px 0 24px;
   }
 `
 
@@ -122,27 +111,77 @@ export const SectionText = styled.p<{ theme: Theme }>`
 `
 
 export const SectionDivider = styled.div<SectionDividerProps>`
-
-  width: 64px;
-  height: 6px;
+  width: 48px;
+  height: 4px;
   border-radius: 10px;
-  background-color: #fff;
-  background: ${(props) => props.colorAlt ? 
-    'linear-gradient(270deg, #F46737 0%, #945DD6 100%)' :
-    'linear-gradient(270deg, #13ADC7 0%, #945DD6 100%)'};
-
-    margin: ${(props) => props.divider ? "4rem 0" : "" };
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    width: 48px;
-    height: 4px;
-  }
+  background: ${(props) => props.theme.colors.accent1};
+  margin: ${(props) => props.divider ? "4rem 0" : "" };
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    width: 32px;
-    height: 2px;
+    width: 36px;
+    height: 3px;
   }
 `
+
+/* Shared card look: same surface, border, radius and hover across every section */
+export const cardStyle = css`
+  background: ${(props) => props.theme.colors.cardBg};
+  border: 1px solid ${(props) => props.theme.colors.cardBorder};
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: ${(props) => props.theme.colors.accent1}80;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  }
+`
+
+const buttonBase = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+`
+
+export const PrimaryButton = styled.a`
+  ${buttonBase};
+  background: ${(props) => props.theme.colors.accent1};
+  color: ${(props) => props.theme.colors.onAccent};
+  border: 1px solid ${(props) => props.theme.colors.accent1};
+
+  &:hover {
+    background: ${(props) => props.theme.colors.accentHover};
+    border-color: ${(props) => props.theme.colors.accentHover};
+    color: ${(props) => props.theme.colors.onAccent};
+  }
+`
+
+export const OutlineButton = styled.a`
+  ${buttonBase};
+  background: transparent;
+  color: ${(props) => props.theme.colors.primary1};
+  border: 1px solid ${(props) => props.theme.colors.accent1}66;
+
+  &:hover {
+    background: ${(props) => props.theme.colors.accent1}1a;
+    border-color: ${(props) => props.theme.colors.accent1};
+    color: ${(props) => props.theme.colors.primary1};
+  }
+`
+
 export const SectionSubText = styled.p<{ theme: Theme }>`
   max-width: 800px;
   font-weight: 300;
@@ -176,9 +215,6 @@ export const SecondaryBtn = styled.button<{ theme: Theme }>`
   margin-bottom: 80px;
   cursor: pointer;
   transition: 0.4s ease;
-  &:focus {
-    outline: none;
-  }
 
   &:hover {
     color: #0f1624;
@@ -266,9 +302,6 @@ export const ButtonFront = styled.button<ButtonFrontProps>`
 
   &:hover {
     opacity: 0;
-  }
-  &:focus {
-    outline: none;
   }
   &:active {
     opacity: 1;

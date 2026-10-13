@@ -3,19 +3,23 @@ import { Theme } from "../types";
 const defaultTheme: Theme = {
   // Temp fonts
   fonts: {
-    title: "Space Grotesk, sans-serif",
-    main: "Space Grotesk, sans-serif",
+    title: "var(--font-space-grotesk), Space Grotesk, sans-serif",
+    main: "var(--font-space-grotesk), Space Grotesk, sans-serif",
   },
-  // Colors for layout
+  // Colors for layout (matched to the LinkedIn banner: deep navy + soft blue)
   colors: {
-    primary1: "hsl(204,23.8%,95.9%)",
-    background1: "#0F1624",
-    accent1: "hsl(34.9,98.6%,72.9%)",
-    button: "hsl(205.1,100%,36.1%)",
-    background2: "hsl(232.7,27.3%,23.7%)",
-    text: "rgba(255, 255, 255, 0.5)",
-    cardBg: "#243556",
-    cardBorder: "#5274b7"
+    primary1: "#E6EDF7",
+    background1: "#0F1C2E",
+    accent1: "#8AB8F0",
+    accentHover: "#A9CBF4",
+    onAccent: "#0F1C2E",
+    button: "#8AB8F0",
+    background2: "#15263D",
+    text: "rgba(230, 237, 247, 0.72)",
+    textSubtle: "rgba(230, 237, 247, 0.6)",
+    cardBg: "#15263D",
+    cardBorder: "rgba(138, 184, 240, 0.16)",
+    border: "rgba(255, 255, 255, 0.08)",
   },
   // Breakpoints for responsive design
   breakpoints: {

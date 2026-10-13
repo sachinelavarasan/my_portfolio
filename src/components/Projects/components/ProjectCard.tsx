@@ -1,97 +1,88 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useId, useRef, useState } from "react";
+import { FaGooglePlay } from "react-icons/fa";
+
+import { Project } from "../../../types";
+import { SafeImage } from "../../SafeImage";
+import { ProjectLinks } from "./ProjectLinks";
 import {
-  ExternalLinks,
-  Img,
+  Badge,
+  CardContent,
+  Description,
+  Heading,
+  ImageWrapper,
   ProjectCardContainer,
+  ReadMore,
   Tag,
   TagList,
-  TitleContent,
-  CardContent,
-  Heading,
-  Description,
-  Row
 } from "../element";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-interface ProjectCardProps {
-  title: string;
-  className?: string;
-  url: string;
-  source: string;
-  live?: string;
-  description: string;
-  tech: string[];
-  type: string;
-  demo?: string;
-}
+const CLAMP_LINES = 3;
 
-export const ProjectCard = ({
-  title,
-  url,
-  source,
-  live,
-  description,
-  tech,
-  type,
-  demo
-}: ProjectCardProps) => {
+export const ProjectCard = ({ project }: { project: Project }) => {
+  const [expanded, setExpanded] = useState(false);
+  const [clamped, setClamped] = useState(false);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const descriptionId = useId();
+
+  // Only offer "Read more" when the description is actually cut off.
+  useEffect(() => {
+    const el = descriptionRef.current;
+    if (!el) return;
+    const check = () => setClamped(el.scrollHeight > el.clientHeight + 1);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [project.description]);
+
   return (
     <ProjectCardContainer>
+      <ImageWrapper>
+        {project.badge && (
+          <Badge>
+            <FaGooglePlay aria-hidden="true" />
+            {project.badge}
+          </Badge>
+        )}
+        <SafeImage
+          src={project.image}
+          alt={`${project.title} app screenshot`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 340px"
+        />
+      </ImageWrapper>
 
-      {type ? (
-        <>
-          {url && <Img src={url} alt={title} />}
+      <CardContent>
+        <Heading>{project.title}</Heading>
 
-          <CardContent>
+        <Description
+          ref={descriptionRef}
+          id={descriptionId}
+          $expanded={expanded}
+          $clamp={CLAMP_LINES}
+        >
+          {project.description}
+        </Description>
+        {(clamped || expanded) && (
+          <ReadMore
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            aria-controls={descriptionId}
+          >
+            {expanded ? "Show less" : "Read more"}
+          </ReadMore>
+        )}
 
-            <Heading>{title}</Heading>
+        <TagList aria-label="Tech stack">
+          {project.tags.map((t) => (
+            <Tag key={t}>{t}</Tag>
+          ))}
+        </TagList>
 
-            <Description>{description}</Description>
-
-            <TitleContent>Tech Stack</TitleContent>
-
-            <TagList>
-              {tech.map((t, i) => (
-                <Tag key={i}>{t}</Tag>
-              ))}
-            </TagList>
-
-            <Row>
-              <ExternalLinks
-                href={source}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub style={{ marginRight: "6px" }} />
-                Source Code
-              </ExternalLinks>
-
-              {live && (
-                <ExternalLinks
-                  href={live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaExternalLinkAlt style={{ marginRight: "6px" }} />
-                  Live Demo
-                </ExternalLinks>
-              )}
-              {demo && (
-                <ExternalLinks
-                  href={demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaExternalLinkAlt style={{ marginRight: "6px" }} />
-                  Demo Video
-                </ExternalLinks>
-              )}
-            </Row>
-          </CardContent>
-        </>
-      ) : (
-        <div className="heading p-4">{title}....</div>
-      )}
+        <ProjectLinks project={project} />
+      </CardContent>
     </ProjectCardContainer>
   );
 };

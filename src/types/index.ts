@@ -8,12 +8,23 @@ export interface Project {
   type: string;
   live?: string;
   demo?: string;
+  apiSource?: string;
+  playStore?: string;
+  badge?: string;
+  featured?: boolean;
+  summary?: string;
 }
 
 export interface Skill {
+  name: string;
   image: string;
-  id: number;
-  description: string;
+  // Monochrome dark logos that need flipping to show on the navy background
+  invert?: boolean;
+}
+
+export interface SkillGroup {
+  category: string;
+  skills: Skill[];
 }
 
 export interface Theme {
@@ -25,11 +36,15 @@ export interface Theme {
     primary1: string;
     background1: string;
     accent1: string;
+    accentHover: string;
+    onAccent: string;
     button: string;
     background2: string;
     text: string;
-    cardBg: string,
-    cardBorder: string
+    textSubtle: string;
+    cardBg: string;
+    cardBorder: string;
+    border: string;
   };
   breakpoints: {
     sm: string;

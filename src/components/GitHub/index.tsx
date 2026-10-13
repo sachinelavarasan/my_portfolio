@@ -10,7 +10,6 @@ import {
 } from "../../styles/GlobalComponents";
 import {
   GHCta,
-  GHStatsRow,
   GraphWrapper,
   RepoCard,
   RepoDescription,
@@ -52,6 +51,7 @@ interface Repo {
 export const GitHub = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [graphFailed, setGraphFailed] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -71,23 +71,14 @@ export const GitHub = () => {
       <SectionDivider />
       <SectionTitle $main>GitHub Activity</SectionTitle>
 
-      <GHStatsRow>
-        <img
-          src={`https://streak-stats.demolab.com?user=${GH_USER}&theme=react&background=0D1117&border_radius=8&border=FFFFFF14`}
-          alt="GitHub Streak"
-          loading="lazy"
-        />
-        {/* <img
-          src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GH_USER}&layout=compact&theme=react&hide_border=true&bg_color=0d1117&title_color=13ADC7&text_color=ffffff99`}
-          alt="Top Languages"
-          loading="lazy"
-        /> */}
-      </GHStatsRow>
-
-      <SectionSubLabel>Contribution Graph</SectionSubLabel>
-      <GraphWrapper>
-        <ContributionGraph user={GH_USER} />
-      </GraphWrapper>
+      {!graphFailed && (
+        <>
+          <SectionSubLabel>Contribution Graph</SectionSubLabel>
+          <GraphWrapper>
+            <ContributionGraph user={GH_USER} onError={() => setGraphFailed(true)} />
+          </GraphWrapper>
+        </>
+      )}
 
       <SectionSubLabel>Top Repositories</SectionSubLabel>
       <ReposGrid>
@@ -95,15 +86,14 @@ export const GitHub = () => {
           ? Array.from({ length: 6 }).map((_, i) => (
               <SkeletonCard key={i} />
             ))
-          : repos.map((repo, i) => (
+          : repos.map((repo) => (
               <RepoCard
                 key={repo.id}
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                $delay={i}
               >
-                <RepoName>📁 {repo.name}</RepoName>
+                <RepoName>{repo.name}</RepoName>
                 <RepoDescription>
                   {repo.description ?? "No description provided."}
                 </RepoDescription>
@@ -119,11 +109,11 @@ export const GitHub = () => {
                     </RepoMetaItem>
                   )}
                   <RepoMetaItem>
-                    <AiFillStar size="0.85rem" />
+                    <AiFillStar size="0.85rem" aria-label="Stars" />
                     {repo.stargazers_count}
                   </RepoMetaItem>
                   <RepoMetaItem>
-                    <BiGitRepoForked size="0.85rem" />
+                    <BiGitRepoForked size="0.85rem" aria-label="Forks" />
                     {repo.forks_count}
                   </RepoMetaItem>
                 </RepoMeta>
@@ -137,7 +127,7 @@ export const GitHub = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <AiFillGithub size="1.35rem" />
+        <AiFillGithub size="1.35rem" aria-hidden="true" />
         View Full GitHub Profile
       </GHCta>
     </Section>

@@ -1,10 +1,8 @@
+'use client';
+
 import styled, { keyframes } from "styled-components";
 import { Theme } from "../../types";
-
-const fadeInUp = keyframes`
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-`;
+import { cardStyle, OutlineButton } from "../../styles/GlobalComponents";
 
 const shimmerAnim = keyframes`
   0%   { background-position: -600px 0; }
@@ -12,49 +10,19 @@ const shimmerAnim = keyframes`
 `;
 
 
-export const GHStatsRow = styled.div<{ theme: Theme }>`
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 24px 0 32px;
-  width: 100%;
-
-  img {
-    border-radius: 16px;
-    height: 160px;
-    // object-fit: contain;
-    flex: 1 1 300px;
-    max-width: 420px;
-    display: block;
-  }
-
-  @media ${(p) => p.theme.breakpoints.sm} {
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-`;
-
-
 export const GraphWrapper = styled.div<{ theme: Theme }>`
+  ${cardStyle};
   width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
   margin-bottom: 40px;
   padding: 20px 24px 16px;
-  animation: ${fadeInUp} 0.7s ease both;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
   @media ${(p) => p.theme.breakpoints.sm} {
-    margin-bottom: 28px;
-    border-radius: 14px;
+    margin-bottom: 32px;
     padding: 16px 12px 12px;
   }
 `;
@@ -66,21 +34,18 @@ export const GraphHeader = styled.div`
   margin-bottom: 12px;
 `;
 
-export const GraphTotal = styled.span`
+export const GraphTotal = styled.span<{ theme: Theme }>`
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.55);
+  color: ${(p) => p.theme.colors.text};
 
   strong {
     font-size: 18px;
     font-weight: 700;
-    background: linear-gradient(90deg, #13ADC7, #945DD6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: ${(p) => p.theme.colors.accent1};
   }
 `;
 
-export const GraphScroll = styled.div`
+export const GraphScroll = styled.div<{ theme: Theme }>`
   width: 100%;
   overflow-x: auto;
   scrollbar-width: thin;
@@ -94,14 +59,12 @@ export const GraphScroll = styled.div`
 
   .label {
     font-size: 9px;
-    fill: rgba(255, 255, 255, 0.4);
+    fill: ${(p) => p.theme.colors.textSubtle};
   }
 
-  rect {
-    transition: opacity 0.2s ease;
-  }
   rect:hover {
-    opacity: 0.7;
+    stroke: ${(p) => p.theme.colors.primary1};
+    stroke-width: 1;
   }
 `;
 
@@ -111,12 +74,12 @@ export const GraphFooter = styled.div`
   margin-top: 10px;
 `;
 
-export const GraphLegend = styled.div`
+export const GraphLegend = styled.div<{ theme: Theme }>`
   display: flex;
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  color: ${(p) => p.theme.colors.textSubtle};
 
   span {
     width: 11px;
@@ -125,26 +88,14 @@ export const GraphLegend = styled.div`
   }
 `;
 
-export const GraphMessage = styled.p`
-  margin: 0;
-  padding: 24px 0;
-  text-align: center;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-
-  a {
-    color: #13ADC7;
-  }
-`;
-
 export const GraphSkeleton = styled.div`
   height: 150px;
   border-radius: 12px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.05) 25%,
-    rgba(255, 255, 255, 0.09) 50%,
-    rgba(255, 255, 255, 0.05) 75%
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
   );
   background-size: 600px 100%;
   animation: ${shimmerAnim} 1.6s linear infinite;
@@ -156,81 +107,41 @@ export const ReposGrid = styled.div<{ theme: Theme }>`
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 
-  @media ${(p) => p.theme.breakpoints.md} {
+  @media ${(p) => p.theme.breakpoints.lg} {
     grid-template-columns: repeat(2, 1fr);
   }
   @media ${(p) => p.theme.breakpoints.sm} {
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-bottom: 28px;
   }
 `;
 
-export const RepoCard = styled.a<{ theme: Theme; $delay?: number }>`
+export const RepoCard = styled.a<{ theme: Theme }>`
+  ${cardStyle};
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 20px 20px 16px;
-  border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.06) 0%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  animation: ${fadeInUp} 0.5s ease both;
-  animation-delay: ${(p) => (p.$delay ?? 0) * 0.08}s;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.04) 50%,
-      transparent 100%
-    );
-    background-size: 600px 100%;
-    animation: ${shimmerAnim} 3s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    border-color: rgba(19, 173, 199, 0.45);
-    box-shadow: 0 10px 32px rgba(19, 173, 199, 0.14);
-  }
-  &:hover::after {
-    opacity: 1;
-  }
+  padding: 18px 20px 16px;
 
   @media ${(p) => p.theme.breakpoints.sm} {
     padding: 16px;
   }
 `;
 
-export const RepoName = styled.span`
-  font-size: 14px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
+export const RepoName = styled.span<{ theme: Theme }>`
+  font-size: 15px;
+  font-weight: 600;
+  color: ${(p) => p.theme.colors.primary1};
   word-break: break-word;
   line-height: 1.3;
 `;
 
-export const RepoDescription = styled.p`
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.45);
+export const RepoDescription = styled.p<{ theme: Theme }>`
+  font-size: 14px;
+  line-height: 1.55;
+  color: ${(p) => p.theme.colors.text};
   margin: 0;
   flex: 1;
   display: -webkit-box;
@@ -246,12 +157,12 @@ export const RepoMeta = styled.div`
   margin-top: 4px;
 `;
 
-export const RepoMetaItem = styled.span`
+export const RepoMetaItem = styled.span<{ theme: Theme }>`
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  color: ${(p) => p.theme.colors.textSubtle};
 `;
 
 export const RepoLanguageDot = styled.span<{ $color: string }>`
@@ -264,59 +175,34 @@ export const RepoLanguageDot = styled.span<{ $color: string }>`
 `;
 
 
-export const SkeletonCard = styled.div<{ theme: Theme }>`
+export const SkeletonCard = styled.div`
   height: 120px;
   border-radius: 16px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.05) 25%,
-    rgba(255, 255, 255, 0.09) 50%,
-    rgba(255, 255, 255, 0.05) 75%
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
   );
   background-size: 600px 100%;
   animation: ${shimmerAnim} 1.6s linear infinite;
 `;
 
 
-export const GHCta = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, border-color 0.3s ease,
-    background 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto 64px;
+export const GHCta = styled(OutlineButton)`
   align-self: center;
-
-  &:hover {
-    transform: translateY(-3px);
-    border-color: rgba(19, 173, 199, 0.5);
-    background: rgba(19, 173, 199, 0.08);
-    box-shadow: 0 10px 30px rgba(19, 173, 199, 0.18);
-    color: #fff;
-  }
 
   @media (max-width: 480px) {
     width: 100%;
-    justify-content: center;
-    margin-bottom: 48px;
   }
 `;
 
-export const SectionSubLabel = styled.p`
+export const SectionSubLabel = styled.h3<{ theme: Theme }>`
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.35);
-  margin: 0 0 16px;
+  letter-spacing: 0.08em;
+  color: ${(p) => p.theme.colors.accent1};
+  margin: 0 0 14px;
   align-self: flex-start;
 `;

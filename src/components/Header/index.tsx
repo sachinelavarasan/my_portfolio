@@ -1,58 +1,67 @@
 "use client";
 
-import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DiCssdeck } from "react-icons/di";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import {
   Container,
-  Div1,
-  Div2,
+  Logo,
+  NavList,
   NavLink,
-  MobileIcon,
+  MenuButton,
 } from "./elements";
+
+const NAV_ITEMS = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#github", label: "GitHub" },
+  { href: "#tech", label: "Tech Stack" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#contact", label: "Contact" },
+];
 
 export const Header = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
   return (
     <Container>
 
-      <Div1>
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            color: "white",
-            textDecoration: "none",
-            fontWeight: 600,
-            fontSize: "18px",
-          }}
-        >
-          <DiCssdeck size="2rem" />
-          Elavarasan.dev
-        </Link>
-      </Div1>
+      <Logo href="#main-content" aria-label="Elavarasan.dev, back to top">
+        <DiCssdeck size="2rem" aria-hidden="true" />
+        Elavarasan.dev
+      </Logo>
 
-      <MobileIcon onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </MobileIcon>
+      <MenuButton
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls="primary-navigation"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        {isOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+      </MenuButton>
 
-      <Div2 $open={isOpen}>
-
-        <li><NavLink href="#about">About</NavLink></li>
-        <li><NavLink href="#tech">Tech Stack</NavLink></li>
-        <li><NavLink href="#achievements">Achievements</NavLink></li>
-        <li><NavLink href="#certifications">Certifications</NavLink></li>
-        <li><NavLink href="#projects">Projects</NavLink></li>
-        <li><NavLink href="#github">GitHub</NavLink></li>
-        <li><NavLink href="#contact">Contact</NavLink></li>
-
-      </Div2>
+      <NavList id="primary-navigation" $open={isOpen}>
+        {NAV_ITEMS.map((item) => (
+          <li key={item.href}>
+            <NavLink href={item.href} onClick={() => setIsOpen(false)}>
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
+      </NavList>
 
     </Container>
   );
