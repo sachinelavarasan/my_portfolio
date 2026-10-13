@@ -1,8 +1,19 @@
 'use client';
 
 import styled, { keyframes } from "styled-components";
+import { alpha } from "../../styles/colors";
 import { Theme } from "../../types";
 import { cardStyle, OutlineButton } from "../../styles/GlobalComponents";
+
+// Contribution levels: empty cell, then the accent at increasing strength (no other hues).
+// --accent-text is the accent itself on dark and a deeper shade on white, so pale levels stay visible.
+const levelColors = [
+  "var(--graph-empty)",
+  alpha("var(--accent-text)", 30),
+  alpha("var(--accent-text)", 55),
+  alpha("var(--accent-text)", 80),
+  "var(--accent-text)",
+];
 
 const shimmerAnim = keyframes`
   0%   { background-position: -600px 0; }
@@ -15,11 +26,6 @@ export const GraphWrapper = styled.div<{ theme: Theme }>`
   width: 100%;
   margin-bottom: 40px;
   padding: 20px 24px 16px;
-
-  &:hover {
-    transform: none;
-    box-shadow: none;
-  }
 
   @media ${(p) => p.theme.breakpoints.sm} {
     margin-bottom: 32px;
@@ -41,7 +47,7 @@ export const GraphTotal = styled.span<{ theme: Theme }>`
   strong {
     font-size: 18px;
     font-weight: 700;
-    color: ${(p) => p.theme.colors.accent1};
+    color: ${(p) => p.theme.colors.accentText};
   }
 `;
 
@@ -49,7 +55,7 @@ export const GraphScroll = styled.div<{ theme: Theme }>`
   width: 100%;
   overflow-x: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  scrollbar-color: ${(p) => p.theme.colors.border} transparent;
 
   svg {
     display: block;
@@ -61,6 +67,8 @@ export const GraphScroll = styled.div<{ theme: Theme }>`
     font-size: 9px;
     fill: ${(p) => p.theme.colors.textSubtle};
   }
+
+  ${levelColors.map((c, i) => `rect.lvl-${i} { fill: ${c}; }`).join("\n")}
 
   rect:hover {
     stroke: ${(p) => p.theme.colors.primary1};
@@ -86,6 +94,7 @@ export const GraphLegend = styled.div<{ theme: Theme }>`
     height: 11px;
     border-radius: 2.5px;
   }
+  ${levelColors.map((c, i) => `span.lvl-${i} { background: ${c}; }`).join("\n")}
 `;
 
 export const GraphSkeleton = styled.div`
@@ -93,9 +102,9 @@ export const GraphSkeleton = styled.div`
   border-radius: 12px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.04) 75%
+    ${alpha("var(--heading)", 4)} 25%,
+    ${alpha("var(--heading)", 8)} 50%,
+    ${alpha("var(--heading)", 4)} 75%
   );
   background-size: 600px 100%;
   animation: ${shimmerAnim} 1.6s linear infinite;
@@ -180,9 +189,9 @@ export const SkeletonCard = styled.div`
   border-radius: 16px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.04) 75%
+    ${alpha("var(--heading)", 4)} 25%,
+    ${alpha("var(--heading)", 8)} 50%,
+    ${alpha("var(--heading)", 4)} 75%
   );
   background-size: 600px 100%;
   animation: ${shimmerAnim} 1.6s linear infinite;
@@ -199,10 +208,10 @@ export const GHCta = styled(OutlineButton)`
 
 export const SectionSubLabel = styled.h3<{ theme: Theme }>`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: ${(p) => p.theme.colors.accent1};
+  color: ${(p) => p.theme.colors.accentText};
   margin: 0 0 14px;
   align-self: flex-start;
 `;

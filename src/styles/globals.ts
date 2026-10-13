@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from './normalize';
+import { palettes, toCssVars } from './colors';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize};
@@ -9,6 +10,24 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  /* Colour tokens. data-theme is set before paint by the script in app/layout.tsx;
+     the media query is the no-JS fallback that follows the system setting. */
+  :root,
+  :root[data-theme="dark"] {
+    ${toCssVars(palettes.dark)}
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+      ${toCssVars(palettes.light)}
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    ${toCssVars(palettes.light)}
+    color-scheme: light;
+  }
+
   html {
     font-size: 62.5%;
     scroll-behavior: smooth;
@@ -46,7 +65,7 @@ const GlobalStyles = createGlobalStyle`
   a:focus-visible,
   button:focus-visible,
   [tabindex]:focus-visible {
-    outline: 2px solid ${props => props.theme.colors.accent1};
+    outline: 2px solid ${props => props.theme.colors.accentText};
     outline-offset: 3px;
   }
 

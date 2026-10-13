@@ -1,17 +1,17 @@
 import { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import StyledComponentsRegistry from '../lib/registry'
 
-const spaceGrotesk = Space_Grotesk({
-    subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
-    display: "swap",
-    variable: "--font-space-grotesk",
-})
+const heading = Space_Grotesk({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-heading" });
+const body = Inter({ subsets: ["latin"], variable: "--font-body" });
+const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono" });
+
+// Runs before first paint: use the saved theme, else the system setting (avoids a flash of the wrong theme).
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`
 
 
 export const metadata: Metadata = {
@@ -91,7 +91,14 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
+        <html
+            lang="en"
+            className={`${heading.variable} ${body.variable} ${mono.variable}`}
+            suppressHydrationWarning
+        >
+            <head>
+                <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+            </head>
             <body>
                 <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
             </body>

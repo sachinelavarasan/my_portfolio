@@ -124,9 +124,9 @@ export const skillGroups: SkillGroup[] = [
     skills: [
       { name: "Node.js", image: "/skills/node-icon.svg" },
       { name: "NestJS", image: "/skills/nestjs-icon.svg" },
-      { name: "Express", image: "/skills/express-icon.svg", invert: true },
+      { name: "Express", image: "/skills/express-icon.svg", tone: "dark" },
       { name: "TypeScript", image: "/skills/typescript-icon.svg" },
-      { name: "Socket.IO", image: "/skills/socketio-icon.svg" },
+      { name: "Socket.IO", image: "/skills/socketio-icon.svg", tone: "light" },
     ],
   },
   {
@@ -135,8 +135,8 @@ export const skillGroups: SkillGroup[] = [
       { name: "PostgreSQL", image: "/skills/postgres-icon.svg" },
       { name: "MySQL", image: "/skills/mysql-icon.svg" },
       { name: "MongoDB", image: "/skills/mongodb-icon.svg" },
-      { name: "Drizzle ORM", image: "/skills/drizzle-icon.svg" },
-      { name: "Prisma", image: "/skills/prisma-icon.svg" },
+      { name: "Drizzle ORM", image: "/skills/drizzle-icon.svg", tone: "light" },
+      { name: "Prisma", image: "/skills/prisma-icon.svg", tone: "light" },
       { name: "Knex", image: "/skills/knex-icon.svg" },
     ],
   },
@@ -146,7 +146,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "React", image: "/skills/react-js-icon.svg" },
       { name: "Redux Toolkit", image: "/skills/redux-icon.svg" },
       { name: "React Query", image: "/skills/react-query-icon.svg" },
-      { name: "Next.js", image: "/skills/nextjs-icon.svg", invert: true },
+      { name: "Next.js", image: "/skills/nextjs-icon.svg", tone: "dark" },
       { name: "Angular", image: "/skills/angular-icon.svg" },
       { name: "Tailwind CSS", image: "/skills/tailwind-icon.svg" },
       { name: "React Native", image: "/skills/react-native-icon.svg" },
@@ -159,7 +159,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Docker", image: "/skills/docker-icon.svg" },
       { name: "Vitest", image: "/skills/vitest-icon.svg" },
       { name: "Firebase", image: "/skills/firebase-icon.svg" },
-      { name: "GitHub", image: "/skills/github-icon.svg", invert: true },
+      { name: "GitHub", image: "/skills/github-icon.svg", tone: "dark" },
     ],
   },
 ];
@@ -209,7 +209,7 @@ export const experiences: Experience[] = [
 export const achievements: Achievement[] = [
   {
     id: 0,
-    icon: "🏆",
+    icon: "trophy",
     title: "Year of Excellence Award",
     meta: "Bititude · 2024",
     description:
@@ -217,7 +217,7 @@ export const achievements: Achievement[] = [
   },
   {
     id: 1,
-    icon: "🥇",
+    icon: "medal",
     title: "Monthly Performer Award",
     meta: "Bititude · January 2025",
     description:
@@ -225,7 +225,7 @@ export const achievements: Achievement[] = [
   },
   {
     id: 2,
-    icon: "🎯",
+    icon: "calendar-check",
     title: "Perfect Attendance Award",
     meta: "Bititude · 2024",
     description:

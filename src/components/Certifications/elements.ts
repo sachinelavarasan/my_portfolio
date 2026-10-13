@@ -1,6 +1,7 @@
 'use client';
 
 import styled from "styled-components";
+import { alpha } from "../../styles/colors";
 import { Theme } from "../../types";
 import { cardStyle } from "../../styles/GlobalComponents";
 
@@ -10,10 +11,10 @@ export const CertificationsBlock = styled.section`
 
 export const CertificationsHeading = styled.h3<{ theme: Theme }>`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: ${(p) => p.theme.colors.accent1};
+  color: ${(p) => p.theme.colors.accentText};
   margin: 0 0 14px;
 `;
 
@@ -34,7 +35,6 @@ export const CertificationCard = styled.a<{ theme: Theme }>`
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  border-radius: 12px;
   color: inherit;
 
   &:hover {
@@ -46,12 +46,12 @@ export const IconWrapper = styled.div<{ theme: Theme }>`
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: ${(p) => p.theme.colors.accent1}1a;
-  border: 1px solid ${(p) => p.theme.colors.accent1}33;
+  background: ${(p) => alpha(p.theme.colors.accent1, 10)};
+  border: 1px solid ${(p) => alpha(p.theme.colors.accent1, 20)};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(p) => p.theme.colors.accent1};
+  color: ${(p) => p.theme.colors.accentText};
   flex-shrink: 0;
 `;
 

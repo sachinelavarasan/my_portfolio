@@ -18,8 +18,8 @@ export interface Project {
 export interface Skill {
   name: string;
   image: string;
-  // Monochrome dark logos that need flipping to show on the navy background
-  invert?: boolean;
+  // Single-colour logos: "dark" ones are flipped on the dark theme, "light" ones on the light theme
+  tone?: "dark" | "light";
 }
 
 export interface SkillGroup {
@@ -31,11 +31,13 @@ export interface Theme {
   fonts: {
     title: string;
     main: string;
+    mono: string;
   };
   colors: {
     primary1: string;
     background1: string;
     accent1: string;
+    accentText: string;
     accentHover: string;
     onAccent: string;
     button: string;
@@ -45,6 +47,7 @@ export interface Theme {
     cardBg: string;
     cardBorder: string;
     border: string;
+    shadow: string;
   };
   breakpoints: {
     sm: string;
@@ -64,7 +67,7 @@ export interface Experience {
 
 export interface Achievement {
   id: number;
-  icon: string;
+  icon: "trophy" | "medal" | "calendar-check";
   title: string;
   meta?: string;
   description: string;

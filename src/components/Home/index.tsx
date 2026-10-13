@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FiDownload } from "react-icons/fi";
 
 import { HomeContainer, HeroButtons, Greeting, Name, Tagline, Photo } from "./elements";
-import myphotoIcon from "../../../public/myphoto.png";
+import profilePhoto from "../../../public/profile-photo.png";
 import { OutlineButton, PrimaryButton, Section } from "../../styles/GlobalComponents";
 
 export const Home = () => {
@@ -30,11 +30,11 @@ export const Home = () => {
         </div>
         <Photo>
           <Image
-            src={myphotoIcon}
+            src={profilePhoto}
             alt="Photo of Elavarasan Murugesan"
-            width={180}
-            height={180}
-            sizes="(max-width: 640px) 120px, 180px"
+            width={260}
+            height={260}
+            sizes="(max-width: 640px) 160px, (max-width: 768px) 210px, 260px"
             priority
           />
         </Photo>

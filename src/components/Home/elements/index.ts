@@ -40,7 +40,7 @@ export const Name = styled.h1`
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: ${(props) => props.theme.colors.accent1};
+  color: ${(props) => props.theme.colors.accentText};
 
   @media ${(props) => props.theme.breakpoints.md} {
     font-size: 44px;
@@ -68,17 +68,23 @@ export const Photo = styled.div`
   flex-shrink: 0;
 
   img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid ${(props) => props.theme.colors.accent1}66;
+    /* the photo is a transparent PNG with its own accent ring */
+    width: 260px;
+    height: 260px;
+    display: block;
+  }
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    img {
+      width: 210px;
+      height: 210px;
+    }
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
     img {
-      width: 120px;
-      height: 120px;
+      width: 160px;
+      height: 160px;
     }
   }
 `;

@@ -6,10 +6,10 @@ import { SafeImage } from "../../SafeImage";
 interface SkillCardProps {
   url: string;
   name: string;
-  invert?: boolean;
+  tone?: "dark" | "light";
 }
 
-export const SkillCard = ({ url, name, invert }: SkillCardProps) => {
+export const SkillCard = ({ url, name, tone }: SkillCardProps) => {
   return (
     <SkillCardContainer>
       <SafeImage
@@ -17,7 +17,7 @@ export const SkillCard = ({ url, name, invert }: SkillCardProps) => {
         alt={`${name} logo`}
         width={28}
         height={28}
-        className={invert ? "invert" : undefined}
+        className={tone ? `tone-${tone}` : undefined}
       />
       <SkillName>{name}</SkillName>
     </SkillCardContainer>

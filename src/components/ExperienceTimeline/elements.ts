@@ -1,6 +1,7 @@
 'use client';
 
 import styled from "styled-components";
+import { alpha } from "../../styles/colors";
 import { cardStyle } from "../../styles/GlobalComponents";
 
 export const Timeline = styled.div`
@@ -12,7 +13,7 @@ export const Timeline = styled.div`
     content: "";
     position: absolute;
     width: 2px;
-    background: ${({ theme }) => theme.colors.accent1}40;
+    background: ${({ theme }) => alpha(theme.colors.accent1, 25)};
     top: 0;
     bottom: 0;
     left: 50%;
@@ -58,7 +59,7 @@ export const Card = styled.div`
 
 export const Role = styled.h3`
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.primary1};
   margin-bottom: 4px;
 
@@ -70,7 +71,7 @@ export const Role = styled.h3`
 export const Company = styled.div`
   font-size: 15px;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.accent1};
+  color: ${({ theme }) => theme.colors.accentText};
   margin-bottom: 2px;
 `;
 
@@ -91,7 +92,7 @@ export const List = styled.ul`
     color: ${({ theme }) => theme.colors.text};
   }
   li::marker {
-    color: ${({ theme }) => theme.colors.accent1};
+    color: ${({ theme }) => theme.colors.accentText};
   }
 `;
 
@@ -106,7 +107,7 @@ export const Content = styled.div<{ $isLeft: boolean }>`
     /* the card is 45% wide, so the gap to the centre line is 5/45 of its width */
     width: calc(100% * 5 / 45);
     height: 2px;
-    background: ${({ theme }) => theme.colors.accent1}40;
+    background: ${({ theme }) => alpha(theme.colors.accent1, 25)};
     ${({ $isLeft }) => ($isLeft ? "left: 100%;" : "right: 100%;")}
   }
 
@@ -143,7 +144,7 @@ export const Icon = styled.div<{ $isLatest?: boolean }>`
   background: ${({ theme, $isLatest }) =>
     $isLatest ? theme.colors.accent1 : theme.colors.cardBg};
   color: ${({ theme, $isLatest }) =>
-    $isLatest ? theme.colors.onAccent : theme.colors.accent1};
+    $isLatest ? theme.colors.onAccent : theme.colors.accentText};
   border: 2px solid ${({ theme }) => theme.colors.accent1};
 
   @media (max-width: 768px) {

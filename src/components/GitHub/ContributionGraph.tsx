@@ -22,13 +22,8 @@ const STEP = CELL + GAP;
 const LEFT = 28;
 const TOP = 18;
 
-const LEVEL_COLORS = [
-  "rgba(255, 255, 255, 0.07)",
-  "rgba(138, 184, 240, 0.3)",
-  "rgba(138, 184, 240, 0.55)",
-  "rgba(138, 184, 240, 0.8)",
-  "#8AB8F0",
-];
+// Colours for the 5 activity levels live in CSS (.lvl-0 … .lvl-4 in elements.ts) so they follow the theme.
+const LEVELS = [0, 1, 2, 3, 4];
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -142,7 +137,7 @@ export const ContributionGraph = ({ user, onError }: { user: string; onError?: (
                   width={CELL}
                   height={CELL}
                   rx={2.5}
-                  fill={LEVEL_COLORS[day.level]}
+                  className={`lvl-${day.level}`}
                 >
                   <title>
                     {`${day.count} contribution${day.count === 1 ? "" : "s"} on ${parseDate(day.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}`}
@@ -157,8 +152,8 @@ export const ContributionGraph = ({ user, onError }: { user: string; onError?: (
       <GraphFooter>
         <GraphLegend>
           Less
-          {LEVEL_COLORS.map((color) => (
-            <span key={color} style={{ background: color }} />
+          {LEVELS.map((level) => (
+            <span key={level} className={`lvl-${level}`} />
           ))}
           More
         </GraphLegend>

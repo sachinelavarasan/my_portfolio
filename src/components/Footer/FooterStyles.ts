@@ -1,6 +1,7 @@
 'use client';
 
 import styled from "styled-components"
+import { alpha } from "../../styles/colors";
 import { Theme } from "../../types";
 
 export const FooterWrapper = styled.footer<{ theme: Theme }>`
@@ -66,8 +67,8 @@ export const SocialIcon = styled.a<{ theme: Theme }>`
   transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    color: ${props => props.theme.colors.accent1};
-    border-color: ${props => props.theme.colors.accent1}80;
+    color: ${props => props.theme.colors.accentText};
+    border-color: ${props => alpha(props.theme.colors.accent1, 50)};
     transform: translateY(-2px);
   }
 `

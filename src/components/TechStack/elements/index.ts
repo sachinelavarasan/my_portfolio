@@ -23,10 +23,10 @@ export const Group = styled.div`
 export const CategoryTitle = styled.h3<{ theme: Theme }>`
   margin: 0 0 14px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: ${(props) => props.theme.colors.accent1};
+  color: ${(props) => props.theme.colors.accentText};
 `;
 
 export const SkillGrid = styled.ul`
@@ -47,7 +47,6 @@ export const SkillCardContainer = styled.li<{ theme: Theme }>`
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border-radius: 12px;
   min-width: 0;
 
   img {
@@ -57,13 +56,14 @@ export const SkillCardContainer = styled.li<{ theme: Theme }>`
     flex-shrink: 0;
   }
 
-  img.invert {
+  /* flip single-colour logos only in the theme where they'd disappear */
+  :root:not([data-theme="light"]) & img.tone-dark {
     filter: invert(1) brightness(0.92);
   }
-
-  &:hover {
-    transform: translateY(-2px);
+  :root[data-theme="light"] & img.tone-light {
+    filter: invert(1);
   }
+
 `;
 
 export const SkillName = styled.span<{ theme: Theme }>`

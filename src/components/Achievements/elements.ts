@@ -1,6 +1,7 @@
 'use client';
 
 import styled from "styled-components";
+import { alpha } from "../../styles/colors";
 import { Theme } from "../../types";
 import { cardStyle } from "../../styles/GlobalComponents";
 
@@ -34,7 +35,7 @@ export const StatNumber = styled.span<{ theme: Theme }>`
   font-size: 40px;
   font-weight: 700;
   line-height: 1;
-  color: ${(p) => p.theme.colors.accent1};
+  color: ${(p) => p.theme.colors.accentText};
   margin-bottom: 8px;
 
   @media ${(p) => p.theme.breakpoints.sm} {
@@ -83,12 +84,12 @@ export const AchievementIcon = styled.div<{ theme: Theme }>`
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: ${(p) => p.theme.colors.accent1}1a;
-  border: 1px solid ${(p) => p.theme.colors.accent1}33;
+  background: ${(p) => alpha(p.theme.colors.accent1, 10)};
+  border: 1px solid ${(p) => alpha(p.theme.colors.accent1, 20)};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  color: ${(p) => p.theme.colors.accentText};
   flex-shrink: 0;
 `;
 
@@ -101,7 +102,7 @@ export const AchievementContent = styled.div`
 
 export const AchievementTitle = styled.h3<{ theme: Theme }>`
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 700;
   color: ${(p) => p.theme.colors.primary1};
   line-height: 1.35;
   margin: 0;
@@ -112,7 +113,7 @@ export const AchievementMeta = styled.span<{ theme: Theme }>`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: ${(p) => p.theme.colors.accent1};
+  color: ${(p) => p.theme.colors.accentText};
 `;
 
 export const AchievementDescription = styled.p<{ theme: Theme }>`

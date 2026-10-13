@@ -1,25 +1,28 @@
 import { Theme } from "../types";
 
 const defaultTheme: Theme = {
-  // Temp fonts
+  // Font variables are set by next/font in app/layout.tsx
   fonts: {
-    title: "var(--font-space-grotesk), Space Grotesk, sans-serif",
-    main: "var(--font-space-grotesk), Space Grotesk, sans-serif",
+    title: "var(--font-heading), Space Grotesk, sans-serif",
+    main: "var(--font-body), Inter, system-ui, sans-serif",
+    mono: "var(--font-mono), JetBrains Mono, ui-monospace, monospace",
   },
-  // Colors for layout (matched to the LinkedIn banner: deep navy + soft blue)
+  // Colors point at the CSS variables in styles/colors.ts, so light/dark switch without re-rendering
   colors: {
-    primary1: "#E6EDF7",
-    background1: "#0F1C2E",
-    accent1: "#8AB8F0",
-    accentHover: "#A9CBF4",
-    onAccent: "#0F1C2E",
-    button: "#8AB8F0",
-    background2: "#15263D",
-    text: "rgba(230, 237, 247, 0.72)",
-    textSubtle: "rgba(230, 237, 247, 0.6)",
-    cardBg: "#15263D",
-    cardBorder: "rgba(138, 184, 240, 0.16)",
-    border: "rgba(255, 255, 255, 0.08)",
+    primary1: "var(--heading)",
+    background1: "var(--bg)",
+    accent1: "var(--accent)",
+    accentText: "var(--accent-text)",
+    accentHover: "color-mix(in srgb, var(--accent) 80%, white)",
+    onAccent: "var(--on-accent)",
+    button: "var(--accent)",
+    background2: "var(--surface)",
+    text: "var(--body)",
+    textSubtle: "var(--body)",
+    cardBg: "var(--surface)",
+    cardBorder: "var(--card-border)",
+    border: "var(--border)",
+    shadow: "var(--shadow)",
   },
   // Breakpoints for responsive design
   breakpoints: {

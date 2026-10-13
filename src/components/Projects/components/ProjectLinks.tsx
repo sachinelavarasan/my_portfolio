@@ -2,7 +2,8 @@ import React from "react";
 import { FaGithub, FaGooglePlay, FaServer, FaExternalLinkAlt, FaPlayCircle } from "react-icons/fa";
 
 import { Project } from "../../../types";
-import { Row, SmallOutlineButton, SmallPrimaryButton } from "../element";
+import { OutlineButton, PrimaryButton } from "../../../styles/GlobalComponents";
+import { Row } from "../element";
 
 const external = { target: "_blank", rel: "noopener noreferrer" } as const;
 
@@ -19,7 +20,7 @@ export const ProjectLinks = ({ project }: { project: Project }) => {
   return (
     <Row>
       {links.map(({ href, label, Icon }, i) => {
-        const Button = i === 0 && project.playStore ? SmallPrimaryButton : SmallOutlineButton;
+        const Button = i === 0 && project.playStore ? PrimaryButton : OutlineButton;
         return (
           <Button
             key={label}

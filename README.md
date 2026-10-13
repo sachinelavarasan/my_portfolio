@@ -1,34 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Elavarasan Murugesan — Portfolio
 
-## Getting Started
+Personal portfolio of **Elavarasan Murugesan**, Senior Full Stack Developer building secure, scalable APIs and SaaS platforms with NestJS, Node.js, React and React Native.
 
-First, run the development server:
+**Live site:** [elavarasandev.netlify.app](https://elavarasandev.netlify.app)
+
+![Portfolio preview](public/og-image.png)
+
+## Features
+
+- **Sections:** Hero, About, Experience timeline, Projects (with a featured project), GitHub activity, Tech Stack, Achievements & Certifications, Contact
+- **Light and dark themes** — follows the system setting by default; the navbar toggle remembers your choice
+- **Live GitHub data** — contribution graph and latest repositories, fetched in the browser
+- **Navbar that tracks your position** — highlights the section you're reading
+- **Responsive** — tested at phone (375px), tablet and desktop widths
+- **Accessible** — keyboard focus styles, skip link, descriptive alt text, WCAG AA colour contrast in both themes, reduced-motion support
+- **SEO ready** — Open Graph and Twitter card image, metadata and web manifest
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org/) (App Router, statically prerendered)
+- [React 19](https://react.dev/) and TypeScript 6
+- [styled-components](https://styled-components.com/) with CSS variables for theming
+- `next/font` (Space Grotesk, Inter, JetBrains Mono) and `next/image`
+- [Lucide](https://lucide.dev/) and [React Icons](https://react-icons.github.io/react-icons/)
+- Deployed on [Netlify](https://www.netlify.com/)
+
+## Getting started
+
+Requires **Node.js 20.9 or later**.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+| Command         | What it does                         |
+| --------------- | ------------------------------------ |
+| `npm run dev`   | Start the development server         |
+| `npm run build` | Create a production build            |
+| `npm run start` | Serve the production build locally   |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Editing the content
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Most content lives in one file, so updating the site rarely means touching components.
 
-## Learn More
+| What to change                                                       | Where                                                            |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Projects, experience, tech stack, achievements, stats, certifications | [`src/constants/constants.ts`](src/constants/constants.ts)       |
+| Hero text, buttons and resume link                                   | [`src/components/Home/index.tsx`](src/components/Home/index.tsx) |
+| About text                                                           | [`src/components/About/index.tsx`](src/components/About/index.tsx) |
+| Contact text and links                                               | [`src/components/Contact/index.tsx`](src/components/Contact/index.tsx) |
+| Navbar links                                                         | [`src/components/Header/index.tsx`](src/components/Header/index.tsx) |
+| Theme colours (dark and light)                                       | [`src/styles/colors.ts`](src/styles/colors.ts)                   |
+| Fonts                                                                | [`src/app/layout.tsx`](src/app/layout.tsx)                       |
+| Page title, description, social preview                              | `metadata` in [`src/app/layout.tsx`](src/app/layout.tsx)         |
+| Images (profile photo, project screenshots, skill icons, OG image)    | [`public/`](public)                                              |
 
-To learn more about Next.js, take a look at the following resources:
+**Adding a project:** add an entry to `projects` in `constants.ts` with a screenshot in `public/projectImage/`. Set `featured: true` (and an optional `summary`) to show it as the large card at the top.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Adding a skill:** add `{ name, image }` to the right group in `skillGroups`. For a single-colour logo, add `tone: "dark"` or `tone: "light"` so it stays visible in both themes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```
+src/
+├── app/            # layout (fonts, metadata, theme script), page, manifest
+├── components/     # one folder per section (Home, About, Projects, …)
+├── constants/      # all site content
+├── styles/         # colour tokens, global styles, shared card and button styles
+├── themes/         # styled-components theme (points at the CSS variables)
+└── types/          # TypeScript types for the content
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The site is hosted on Netlify and built with `@netlify/plugin-nextjs`. Security and caching headers are in [`netlify.toml`](netlify.toml).
+
+After changing the social preview image, refresh the cached preview with [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
+
+## License
+
+[MIT](LICENSE) © Elavarasan M

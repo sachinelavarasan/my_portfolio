@@ -1,3 +1,4 @@
+import { CalendarCheck, Medal, Trophy } from "lucide-react";
 import {
   Section,
   SectionDivider,
@@ -19,6 +20,12 @@ import {
   StatsStrip,
 } from "./elements";
 
+const ICONS = {
+  trophy: Trophy,
+  medal: Medal,
+  "calendar-check": CalendarCheck,
+};
+
 export const Achievements = () => {
   return (
     <Section id="achievements">
@@ -34,16 +41,21 @@ export const Achievements = () => {
       </StatsStrip>
 
       <AchievementsGrid>
-        {achievements.map((item) => (
-          <AchievementCard key={item.id}>
-            <AchievementIcon aria-hidden="true">{item.icon}</AchievementIcon>
-            <AchievementContent>
-              <AchievementTitle>{item.title}</AchievementTitle>
-              {item.meta && <AchievementMeta>{item.meta}</AchievementMeta>}
-              <AchievementDescription>{item.description}</AchievementDescription>
-            </AchievementContent>
-          </AchievementCard>
-        ))}
+        {achievements.map((item) => {
+          const Icon = ICONS[item.icon];
+          return (
+            <AchievementCard key={item.id}>
+              <AchievementIcon aria-hidden="true">
+                <Icon size={22} strokeWidth={1.75} />
+              </AchievementIcon>
+              <AchievementContent>
+                <AchievementTitle>{item.title}</AchievementTitle>
+                {item.meta && <AchievementMeta>{item.meta}</AchievementMeta>}
+                <AchievementDescription>{item.description}</AchievementDescription>
+              </AchievementContent>
+            </AchievementCard>
+          );
+        })}
       </AchievementsGrid>
 
       <Certifications />

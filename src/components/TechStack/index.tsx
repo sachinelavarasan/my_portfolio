@@ -19,7 +19,7 @@ export const TechStack = () => {
             <CategoryTitle>{group.category}</CategoryTitle>
             <SkillGrid>
               {group.skills.map((skill) => (
-                <SkillCard key={skill.name} name={skill.name} url={skill.image} invert={skill.invert} />
+                <SkillCard key={skill.name} name={skill.name} url={skill.image} tone={skill.tone} />
               ))}
             </SkillGrid>
           </Group>

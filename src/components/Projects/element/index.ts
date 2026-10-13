@@ -1,8 +1,9 @@
 'use client';
 
 import styled, { css } from "styled-components";
+import { alpha } from "../../../styles/colors";
 import { Theme } from "../../../types";
-import { cardStyle, OutlineButton, PrimaryButton } from "../../../styles/GlobalComponents";
+import { cardStyle } from "../../../styles/GlobalComponents";
 
 /* ---------- Featured project ---------- */
 
@@ -12,10 +13,6 @@ export const FeaturedCard = styled.article<{ theme: Theme }>`
   grid-template-columns: 1.15fr 1fr;
   overflow: hidden;
   margin-bottom: 32px;
-
-  &:hover {
-    transform: none;
-  }
 
   @media ${({ theme }) => theme.breakpoints.lg} {
     grid-template-columns: 1fr;
@@ -52,7 +49,7 @@ export const FeaturedLabel = styled.span<{ theme: Theme }>`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: ${({ theme }) => theme.colors.accent1};
+  color: ${({ theme }) => theme.colors.accentText};
   margin-bottom: 8px;
 `;
 
@@ -138,7 +135,7 @@ export const CardContent = styled.div`
 
 export const Heading = styled.h3<{ theme: Theme }>`
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.3;
   margin: 0 0 8px;
   color: ${({ theme }) => theme.colors.primary1};
@@ -172,7 +169,7 @@ export const ReadMore = styled.button<{ theme: Theme }>`
 
   font-size: 14px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.accent1};
+  color: ${({ theme }) => theme.colors.accentText};
   cursor: pointer;
 
   &:hover {
@@ -189,12 +186,13 @@ export const TagList = styled.ul`
 `;
 
 export const Tag = styled.li<{ theme: Theme }>`
-  font-size: 12.5px;
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 12px;
   font-weight: 500;
   padding: 4px 10px;
   border-radius: 999px;
-  background: ${({ theme }) => theme.colors.accent1}14;
-  border: 1px solid ${({ theme }) => theme.colors.accent1}33;
+  background: ${({ theme }) => alpha(theme.colors.accent1, 8)};
+  border: 1px solid ${({ theme }) => alpha(theme.colors.accent1, 20)};
   color: ${({ theme }) => theme.colors.primary1};
 `;
 
@@ -204,17 +202,4 @@ export const Row = styled.div`
   gap: 8px;
   flex-wrap: wrap;
   margin-top: auto;
-`;
-
-const smallButton = css`
-  padding: 8px 14px;
-  font-size: 13.5px;
-`;
-
-export const SmallPrimaryButton = styled(PrimaryButton)`
-  ${smallButton};
-`;
-
-export const SmallOutlineButton = styled(OutlineButton)`
-  ${smallButton};
 `;
