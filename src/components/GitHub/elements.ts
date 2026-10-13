@@ -49,18 +49,105 @@ export const GraphWrapper = styled.div<{ theme: Theme }>`
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
   margin-bottom: 40px;
+  padding: 20px 24px 16px;
   animation: ${fadeInUp} 0.7s ease both;
-
-  img {
-    width: 100%;
-    display: block;
-    border-radius: 20px;
-  }
 
   @media ${(p) => p.theme.breakpoints.sm} {
     margin-bottom: 28px;
     border-radius: 14px;
+    padding: 16px 12px 12px;
   }
+`;
+
+export const GraphHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+`;
+
+export const GraphTotal = styled.span`
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+
+  strong {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #13ADC7, #945DD6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+`;
+
+export const GraphScroll = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .label {
+    font-size: 9px;
+    fill: rgba(255, 255, 255, 0.4);
+  }
+
+  rect {
+    transition: opacity 0.2s ease;
+  }
+  rect:hover {
+    opacity: 0.7;
+  }
+`;
+
+export const GraphFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
+
+export const GraphLegend = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+
+  span {
+    width: 11px;
+    height: 11px;
+    border-radius: 2.5px;
+  }
+`;
+
+export const GraphMessage = styled.p`
+  margin: 0;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+
+  a {
+    color: #13ADC7;
+  }
+`;
+
+export const GraphSkeleton = styled.div`
+  height: 150px;
+  border-radius: 12px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.09) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 600px 100%;
+  animation: ${shimmerAnim} 1.6s linear infinite;
 `;
 
 

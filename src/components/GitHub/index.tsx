@@ -22,6 +22,7 @@ import {
   SectionSubLabel,
   SkeletonCard,
 } from "./elements";
+import { ContributionGraph } from "./ContributionGraph";
 
 
 const GH_USER = "sachinelavarasan";
@@ -85,11 +86,7 @@ export const GitHub = () => {
 
       <SectionSubLabel>Contribution Graph</SectionSubLabel>
       <GraphWrapper>
-        <img
-          src={`https://github-readme-activity-graph.vercel.app/graph?username=${GH_USER}&theme=react-dark&hide_border=true&area=true&color=13ADC7&line=945DD6&point=ffffff&area_color=945DD620&custom_title=Contribution%20Activity&days=7`}
-          alt="GitHub Contribution Graph"
-          loading="lazy"
-        />
+        <ContributionGraph user={GH_USER} />
       </GraphWrapper>
 
       <SectionSubLabel>Top Repositories</SectionSubLabel>
