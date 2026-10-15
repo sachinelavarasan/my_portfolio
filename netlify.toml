@@ -32,3 +32,14 @@
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Headers = "Content-Type, Authorization"
     Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+
+# Hidden study notes: keep them out of search engines
+[[headers]]
+  for = "/notes/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/notes"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

@@ -99,7 +99,8 @@ export default function RootLayout({
             <head>
                 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
             </head>
-            <body>
+            {/* browser extensions (e.g. ColorZilla) add attributes to <body> before React loads */}
+            <body suppressHydrationWarning>
                 <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
             </body>
         </html>

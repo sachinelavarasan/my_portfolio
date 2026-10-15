@@ -87,3 +87,10 @@ export interface Certification {
   description?: string;
   link?: string;
 };
+// Hidden study notes (src/app/notes/notes.json)
+export interface Note {
+  slug: string;
+  title: string;
+  description: string;
+  added: string; // YYYY-MM-DD
+}
